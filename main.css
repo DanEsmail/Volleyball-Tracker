@@ -1,0 +1,35 @@
+.court div div div{
+  color: green;
+  border: solid;
+  height: 75px;
+  text-align: center;
+}
+
+.bottom-row{
+  margin-top: 10px;
+}
+
+.court .out{
+  color: blue;
+  border: dotted;
+  height: 75px;
+}
+
+li{
+  color:blue;
+}
+
+.player{
+  margin-top: 22px;
+}
+.container{
+  margin-top: 20px;
+}
+
+button{
+  margin-top: 20px;
+}
+
+h1{
+  color: red;
+}
