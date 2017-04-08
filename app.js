@@ -8,35 +8,9 @@ function playerReady(arr){
   }
 }
 
-function forward(arr){
-  if(poistion === 9 ){
-    poistion = 1;
-  }
-  else{
-    poistion +=1;
-  }
-  var num = poistion;
-  console.log(num)
-  for (var i = 0; i < arr.length; i++) {
-    if(num <= 9 ){
-    $("#spot" + num).html(arr[i])
-    num += 1
-  }else{
-    num = 1
-    $("#spot" + num).html(arr[i])
-    num += 1
-  }
-}
-}
-
-function reverse(arr){
-  if(poistion <= 1){
-    poistion = 9
-  }else{
-    poistion -= 1
-  }
-  var num = poistion
-  console.log(num)
+function loop(arr){
+    var num = poistion;
+    console.log(num)
     for (var i = 0; i < arr.length; i++) {
       if(num <= 9 ){
       $("#spot" + num).html(arr[i])
@@ -47,11 +21,26 @@ function reverse(arr){
       num += 1
     }
   }
+}
 
 
+function forward(arr){
+  if(poistion === 9 ){
+    poistion = 1;
+  }
+  else{
+    poistion +=1;
+  }
+  loop(arr)
+}
 
-
-
+function reverse(arr){
+  if(poistion <= 1){
+    poistion = 9
+  }else{
+    poistion -= 1
+  }
+  loop(arr)
 }
 
 
