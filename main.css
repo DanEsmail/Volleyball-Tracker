@@ -12,7 +12,7 @@
 .court .out{
   color: blue;
   border: dotted;
-  height: 75px;
+  height: auto;
 }
 
 li{
@@ -32,4 +32,8 @@ button{
 
 h1{
   color: red;
+}
+
+select{
+  margin-top: 10px;
 }
