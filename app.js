@@ -96,18 +96,27 @@ $(document).ready(function(){
   amount = $("#amount").val()
   displayOut($("#amount").val())
   playerReady(players);
+  // controls player movement
   $("#reverse").click(function(){
     reverse(players)
   })
   $("#forward").click(function(){
     forward(players)
   })
-
+  //Changes the amount of players
   $("#amount").change(function(){
     amount = $("#amount").val()
     displayOut($("#amount").val())
-    $("#title").html($("#amount").val())
+  })
+  //Creating the team to be customized
+  $("#teamCreate").on("change", function(){
+    console.log($('input[name=playerNumber]:checked').val())
+  })
 
+
+  //changing players names by clicking
+  $(".player").on("click", function(){
+    $(this).html("working")
   })
 
 

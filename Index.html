@@ -9,45 +9,112 @@
 
   </head>
   <body>
-    <h1 id='title'> Testing </h1>
-    <div class=container>
-    <div class="court">
-      <div class="row">
-        <div class="col-md-3 right-side">
-          <div class="top-row"> <p class="player" id="spot3">spot4</p> </div>
-          <div class="bottom-row"> <p class="player" id="spot2">spot5</p> </div>
+    <h1 id='title'> Volleyball Tracker </h1>
+    <div id="nav">
+      <ul>
+        <li class="nav-bar"><a href="#">Team</a></li>
+          <li class="nav-bar"><a href="#">Test</a></li>
+      </ul>
+    </div>
+
+
+<!-- Volleyball Court -->
+<div class=container>
+  <div class="court">
+    <div class="row">
+      <div class="col-md-3 right-side">
+        <div class="top-row"> <p class="player" id="spot3">spot4</p> </div>
+        <div class="bottom-row"> <p class="player" id="spot2">spot5</p> </div>
       </div>
       <div class="col-md-3 center-side">
         <div class="top-row"> <p class="player" id="spot4">spot3</p> </div>
         <div class="bottom-row"> <p class="player" id="spot1">spot6</p> </div>
+      </div>
+      <div class="col-md-3 left-side">
+        <div class="top-row">  <p class="player" id="spot5">spot2</p> </div>
+        <div class="bottom-row"> <p class="player" id="spot6">spot1</p> </div>
+      </div>
+      <div class="col-md-3">
+        <div class="out">
+          <ol reversed>
+            <li id="spot7">out 4</li>
+            <li id="spot8">out 3</li>
+            <li id="spot9">out 2</li>
+            <li id="spot10">out 1</li>
+          </ol>
+          <button id="reverse"> Reverse one </button>
+          <button id="forward"> Forward one </button>
+          <select id="amount" name="amountPlayers">
+            <option value="6">Six</option>
+            <option value="7">Seven</option>
+            <option value="8">Eight</option>
+            <option value="9">Nine</option>
+            <option value="10">Ten</option>
+          </select>
+        </div>
+      </div>
     </div>
-    <div class="col-md-3 left-side">
-      <div class="top-row">  <p class="player" id="spot5">spot2</p> </div>
-      <div class="bottom-row"> <p class="player" id="spot6">spot1</p> </div>
   </div>
-  <div class="col-md-3">
-    <div class="out">
-    <ol reversed>
-      <li id="spot7">out 4</li>
-      <li id="spot8">out 3</li>
-      <li id="spot9">out 2</li>
-      <li id="spot10">out 1</li>
+</div>
 
-    </ol>
-    <button id="reverse"> Reverse one </button>
-    <button id="forward"> Forward one </button>
-    <select id="amount" name="amountPlayers">
-      <option value="6">Six</option>
-      <option value="7">Seven</option>
-      <option value="8">Eight</option>
-      <option value="9">Nine</option>
-      <option value="10">Ten</option>
-  </select>
-</div>
+<!-- Creating Team Box -->
+
+<div id="teamBox">
+  <h3>Create Team</h3>
+  <form id="teamCreate">
+    <!-- Radio Buttons -->
+    <div class="radio-box">
+      <label for="6">Six</label>
+      <input type="radio" name="playerNumber" value="6" checked="checked">
     </div>
-  </div>
+    <div class="radio-box">
+      <label for="7">Seven</label>
+      <input type="radio" name="playerNumber" value="7">
+    </div>
+    <div class="radio-box">
+      <label for="8">Eight</label>
+      <input type="radio" name="playerNumber" value="8">
+    </div>
+    <div class="radio-box">
+      <label for="9">Nine</label>
+      <input type="radio" name="playerNumber" value="9">
+    </div>
+    <div class="radio-box">
+      <label for="10">Ten</label>
+      <input type="radio" name="playerNumber" value="10">
+    </div>
+    <!-- Players -->
+    <div class="player-form">
+      <div class="player-box">
+        <label>Player 1</label> <br>
+        <input type="text" name="playerName" placeholder="Players Name"> <br> <br>
+      </div>
+      <div class="player-box">
+        <label>Player 2</label> <br>
+        <input type="text" name="playerName" placeholder="Players Name"> <br> <br>
+      </div>
+      <div class="player-box">
+        <label>Player 3</label> <br>
+        <input type="text" name="playerName" placeholder="Players Name"> <br> <br>
+      </div>
+      <div class="player-box">
+        <label>Player 4</label> <br>
+        <input type="text" name="playerName" placeholder="Players Name"> <br> <br>
+      </div>
+      <div class="player-box">
+        <label>Player 5</label> <br>
+        <input type="text" name="playerName" placeholder="Players Name"> <br> <br>
+      </div>
+      <div class="player-box">
+        <label>Player 6</label> <br>
+        <input type="text" name="playerName" placeholder="Players Name"> <br> <br>
+      </div>
+    </div>
+    <!-- Player box End -->
+    <button id="finish"> Finished </button>
+  </form>
 </div>
-</div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="./app.js"></script>
 

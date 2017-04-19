@@ -1,7 +1,9 @@
+
+/* making the court*/
 .court div div div{
   color: green;
   border: solid;
-  height: 75px;
+  height: 100px;
   text-align: center;
 }
 
@@ -20,10 +22,14 @@ li{
 }
 
 .player{
-  margin-top: 22px;
+  margin-top: 30px;
 }
 .container{
-  margin-top: 20px;
+  margin-top: 50px;
+}
+
+.bottom-row{
+  margin-top: 50px;
 }
 
 button{
@@ -31,9 +37,87 @@ button{
 }
 
 h1{
-  color: red;
+  color: Black;
+  text-align: center;
 }
 
 select{
   margin-top: 10px;
+}
+
+/* nav bar */
+#nav{
+
+  text-align: center;
+}
+
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #FA9C4C;
+}
+
+.nav-bar{
+  display: inline-block;
+
+}
+
+.nav-bar a{
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+
+
+}
+
+li a:hover{
+    background-color: blue;
+    color: white;
+
+}
+
+
+
+/* Creating Team Box */
+#teamBox{
+  margin-left: 35%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  border: solid;
+  width: 400px;
+  height: auto;
+  z-index: 1;
+  position: absolute;
+
+}
+/* radio box*/
+.radio-box{
+  margin-left: 30px;
+  display:inline-block;
+  text-align: center;
+}
+.radio-box label{
+  display: block;
+}
+
+h3{
+  text-align: center;
+}
+/* Player name Box*/
+.player-form{
+  margin-top: 20px;
+  margin-left: 15px;
+}
+.player-box{
+
+}
+
+/*form button*/
+#finish{
+  margin-left: 40%;
+  margin-bottom: 10px;
 }
