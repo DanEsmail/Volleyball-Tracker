@@ -44,45 +44,45 @@ function reverse(arr){
   loop(arr)
 }
 
-function displayOut(num){
+function displayOut(num , tag){
   switch (num) {
     case "6":
     //hide
-      $("#spot7").css("display", "none");
-      $("#spot8").css("display", "none");
-      $("#spot9").css("display", "none");
-      $("#spot10").css("display", "none");
+      $("#" + tag + "7").css("display", "none");
+      $("#" + tag + "8").css("display", "none");
+      $("#" + tag + "9").css("display", "none");
+      $("#" + tag + "10").css("display", "none");
       break;
     case "7":
       //hide
-      $("#spot8").css("display", "none");
-      $("#spot9").css("display", "none");
-      $("#spot10").css("display", "none");
+      $("#" + tag + "8").css("display", "none");
+      $("#" + tag + "9").css("display", "none");
+      $("#" + tag + "10").css("display", "none");
       //show
-      $("#spot7").css("display", "");
+      $("#" + tag + "7").css("display", "");
       break;
     case "8":
       //hide
-      $("#spot9").css("display", "none");
-      $("#spot10").css("display", "none");
+      $("#" + tag + "9").css("display", "none");
+      $("#" + tag + "10").css("display", "none");
       //show
-      $("#spot7").css("display", "");
-      $("#spot8").css("display", "");
+      $("#" + tag + "7").css("display", "");
+      $("#" + tag + "8").css("display", "");
       break;
     case "9":
       //hide
-      $("#spot10").css("display", "none");
+      $("#" + tag + "10").css("display", "none");
       //show
-      $("#spot7").css("display", "");
-      $("#spot8").css("display", "");
-      $("#spot9").css("display", "");
+      $("#" + tag + "7").css("display", "");
+      $("#" + tag + "8").css("display", "");
+      $("#" + tag + "9").css("display", "");
       break;
     case "10":
       //show
-      $("#spot7").css("display", "");
-      $("#spot8").css("display", "");
-      $("#spot9").css("display", "");
-      $("#spot10").css("display", "");
+      $("#" + tag + "7").css("display", "");
+      $("#" + tag + "8").css("display", "");
+      $("#" + tag + "9").css("display", "");
+      $("#" + tag + "10").css("display", "");
       break;
     default:
       console.log("its a string not a number")
@@ -94,7 +94,7 @@ function displayOut(num){
 
 $(document).ready(function(){
   amount = $("#amount").val()
-  displayOut($("#amount").val())
+  displayOut($("#amount").val(), "spot")
   playerReady(players);
   // controls player movement
   $("#reverse").click(function(){
@@ -106,13 +106,22 @@ $(document).ready(function(){
   //Changes the amount of players
   $("#amount").change(function(){
     amount = $("#amount").val()
-    displayOut($("#amount").val())
+    displayOut($("#amount").val(), "spot")
   })
-  //Creating the team to be customized
-  $("#teamCreate").on("change", function(){
+  //getting information for team creation form
+  $('input[name=playerNumber]').on("change", function(){
+    displayOut($('input[name=playerNumber]:checked').val(), "box")
     console.log($('input[name=playerNumber]:checked').val())
   })
 
+  //transition for the team cration form
+  $("#create").on("click", function(){
+    $("#teamBox").addClass("active")
+    displayOut($('input[name=playerNumber]:checked').val(), "box")
+  })
+  $("#finish").on("click", function(){
+    $("#teamBox").removeClass("active")
+  })
 
   //changing players names by clicking
   $(".player").on("click", function(){

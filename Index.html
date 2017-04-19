@@ -12,8 +12,8 @@
     <h1 id='title'> Volleyball Tracker </h1>
     <div id="nav">
       <ul>
-        <li class="nav-bar"><a href="#">Team</a></li>
-          <li class="nav-bar"><a href="#">Test</a></li>
+          <li class="nav-bar"><a href="#" id="create">Create Team</a></li>
+          <li class="nav-bar"><a href="#">Add Player</a></li>
       </ul>
     </div>
 
@@ -61,7 +61,7 @@
 
 <div id="teamBox">
   <h3>Create Team</h3>
-  <form id="teamCreate">
+  <div id="teamCreate">
     <!-- Radio Buttons -->
     <div class="radio-box">
       <label for="6">Six</label>
@@ -84,35 +84,51 @@
       <input type="radio" name="playerNumber" value="10">
     </div>
     <!-- Players -->
-    <div class="player-form">
+    <div class="player-form" id="box1">
       <div class="player-box">
         <label>Player 1</label> <br>
-        <input type="text" name="playerName" placeholder="Players Name"> <br> <br>
+        <input type="text" name="player1" placeholder="Players Name"> <br> <br>
       </div>
-      <div class="player-box">
+      <div class="player-box" id="box2">
         <label>Player 2</label> <br>
-        <input type="text" name="playerName" placeholder="Players Name"> <br> <br>
+        <input type="text" name="player2" placeholder="Players Name"> <br> <br>
       </div>
-      <div class="player-box">
+      <div class="player-box" id="box3">
         <label>Player 3</label> <br>
-        <input type="text" name="playerName" placeholder="Players Name"> <br> <br>
+        <input type="text" name="player3" placeholder="Players Name"> <br> <br>
       </div>
-      <div class="player-box">
+      <div class="player-box" id="box4">
         <label>Player 4</label> <br>
-        <input type="text" name="playerName" placeholder="Players Name"> <br> <br>
+        <input type="text" name="player4" placeholder="Players Name"> <br> <br>
       </div>
-      <div class="player-box">
+      <div class="player-box" id="box5">
         <label>Player 5</label> <br>
-        <input type="text" name="playerName" placeholder="Players Name"> <br> <br>
+        <input type="text" name="player5" placeholder="Players Name"> <br> <br>
       </div>
-      <div class="player-box">
+      <div class="player-box" id="box6">
         <label>Player 6</label> <br>
-        <input type="text" name="playerName" placeholder="Players Name"> <br> <br>
+        <input type="text" name="player6" placeholder="Players Name"> <br> <br>
+      </div>
+      <div class="player-box" id="box7">
+        <label>Player 7</label> <br>
+        <input type="text" name="player7" placeholder="Players Name"> <br> <br>
+      </div>
+      <div class="player-box" id="box8">
+        <label>Player 8</label> <br>
+        <input type="text" name="player8" placeholder="Players Name"> <br> <br>
+      </div>
+      <div class="player-box" id="box9">
+        <label>Player 9</label> <br>
+        <input type="text" name="player9" placeholder="Players Name"> <br> <br>
+      </div>
+      <div class="player-box" id="box10">
+        <label>Player 10</label> <br>
+        <input type="text" name="player10" placeholder="Players Name"> <br> <br>
       </div>
     </div>
     <!-- Player box End -->
     <button id="finish"> Finished </button>
-  </form>
+  </div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

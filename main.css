@@ -92,7 +92,18 @@ li a:hover{
   height: auto;
   z-index: 1;
   position: absolute;
+  top: 75px;
+  background-color:green;
+  color: black;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s, visibility .5s;
 
+}
+
+#teamBox.active{
+  opacity: 1;
+  visibility: visible;
 }
 /* radio box*/
 .radio-box{
