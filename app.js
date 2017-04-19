@@ -3,6 +3,8 @@ var poistion = 1;
 var testArr =[1,2,3,4,5,6,7,8,9];
 var amount = 6;
 
+var team = {"name": "Tim"}
+
 function playerReady(arr){
   for(var i = 0; i<arr.length; i++){
     $("#spot" + (i+1)).html(arr[i])
@@ -23,7 +25,6 @@ function loop(arr){
     }
   }
 }
-
 
 function forward(arr){
   if(poistion == amount ){
@@ -89,7 +90,13 @@ function displayOut(num , tag){
   }
 }
 
+function teamCreate(val){
+  for(var i = 0; i < val; i++){
+    team["player" + (i+1)] = $("input[name=player"+ (i+1) +"]").val()
+  }
+  console.log(team)
 
+}
 
 
 $(document).ready(function(){
@@ -111,7 +118,7 @@ $(document).ready(function(){
   //getting information for team creation form
   $('input[name=playerNumber]').on("change", function(){
     displayOut($('input[name=playerNumber]:checked').val(), "box")
-    console.log($('input[name=playerNumber]:checked').val())
+
   })
 
   //transition for the team cration form
@@ -121,6 +128,8 @@ $(document).ready(function(){
   })
   $("#finish").on("click", function(){
     $("#teamBox").removeClass("active")
+    teamCreate($('input[name=playerNumber]:checked').val())
+    console.log(team)
   })
 
   //changing players names by clicking
