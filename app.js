@@ -3,7 +3,7 @@ var poistion = 1;
 var testArr =[1,2,3,4,5,6,7,8,9];
 var amount = 6;
 
-var team = {"name": "Tim"}
+var team = {}
 
 function playerReady(arr){
   for(var i = 0; i<arr.length; i++){
@@ -95,7 +95,21 @@ function teamCreate(val){
     team["player" + (i+1)] = $("input[name=player"+ (i+1) +"]").val()
   }
   console.log(team)
+}
 
+function addPlayer(obj){
+    obj["player" + (Object.keys(obj).length + 1)] = $("input[name=add]").val()
+    console.log(obj)
+}
+
+function removePlayer(obj,val){
+  console.log(val)
+  for(var keys in obj){
+    if(val == obj[keys]){
+      delete obj[keys]
+      console.log("here")
+    }
+  }
 }
 
 
@@ -110,25 +124,47 @@ $(document).ready(function(){
   $("#forward").click(function(){
     forward(players)
   })
+
   //Changes the amount of players
   $("#amount").change(function(){
     amount = $("#amount").val()
     displayOut($("#amount").val(), "spot")
   })
+
   //getting information for team creation form
   $('input[name=playerNumber]').on("change", function(){
     displayOut($('input[name=playerNumber]:checked').val(), "box")
 
   })
 
-  //transition for the team cration form
+  //Creating a team
   $("#create").on("click", function(){
     $("#teamBox").addClass("active")
     displayOut($('input[name=playerNumber]:checked').val(), "box")
   })
-  $("#finish").on("click", function(){
+  $("#create-finish").on("click", function(){
     $("#teamBox").removeClass("active")
     teamCreate($('input[name=playerNumber]:checked').val())
+    console.log(team)
+  })
+
+  //adding Players
+  $("#add").on("click", function(){
+    $("#addPlayers").addClass("active")
+  })
+  $("#add-finish").on("click", function(){
+    $("#addPlayers").removeClass("active")
+    addPlayer(team)
+  })
+
+  //Removing Players
+  $("#remove").on("click", function(){
+    $("#removePlayer").addClass("active")
+  })
+  $("#remove-finish").on("click", function(){
+    $("#removePlayer").removeClass("active")
+    console.log(team)
+    removePlayer(team,$("input[name=remove]").val())
     console.log(team)
   })
 
@@ -136,6 +172,4 @@ $(document).ready(function(){
   $(".player").on("click", function(){
     $(this).html("working")
   })
-
-
 })

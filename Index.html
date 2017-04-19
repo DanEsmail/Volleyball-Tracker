@@ -13,7 +13,8 @@
     <div id="nav">
       <ul>
           <li class="nav-bar"><a href="#" id="create">Create Team</a></li>
-          <li class="nav-bar"><a href="#">Add Player</a></li>
+          <li class="nav-bar"><a href="#" id="add">Add Player</a></li>
+          <li class="nav-bar"><a href="#" id="remove">Remove Player</a></li>
       </ul>
     </div>
 
@@ -127,8 +128,32 @@
       </div>
     </div>
     <!-- Player box End -->
-    <button id="finish"> Finished </button>
+    <button id="create-finish"> Finished </button>
   </div>
+</div>
+
+<!-- adding players -->
+
+<div id="addPlayers">
+  <div class="player-form">
+    <div class="player-box">
+      <label>New Player</label> <br>
+      <input type="text" name="add" placeholder="Players Name"> <br> <br>
+    </div>
+      <button id="add-finish"> Finished </button>
+  </div>
+</div>
+
+<!-- Removing Players -->
+
+<div id="removePlayer">
+  <div class="player-form">
+    <div class=player-box>
+      <label>Remove Player</label> <br>
+      <input type="text" name="remove" placeholder="Players Name"> <br> <br>
+    </div>
+  </div>
+  <button id="remove-finish"> Finished </button>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
