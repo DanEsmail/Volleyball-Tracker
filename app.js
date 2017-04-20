@@ -5,44 +5,48 @@ var amount = 6;
 
 var team = {}
 
-function playerReady(arr){
-  for(var i = 0; i<arr.length; i++){
-    $("#spot" + (i+1)).html(arr[i])
-  }
-}
-
-function loop(arr){
-    var num = poistion;
-    console.log(num)
-    for (var i = 0; i < arr.length; i++) {
-      if(num <= amount ){
-      $("#spot" + num).html(arr[i])
-      num += 1
-    }else{
-      num = 1
-      $("#spot" + num).html(arr[i])
-      num += 1
+function playerReady(obj){
+  var num = 1;
+  if(Object.keys(obj).length > 0){
+    for(var keys in obj){
+      $("#spot" + num).html(obj[keys])
+      num += 1;
     }
   }
 }
 
-function forward(arr){
+function loop(obj){
+    var num = poistion;
+    console.log(num)
+    for(var keys in obj){
+      if(num <= amount ){
+        $("#spot" + num).html(obj[keys])
+        num += 1
+      }else{
+        num = 1
+        $("#spot" + num).html(obj[keys])
+        num += 1
+      }
+    }
+}
+
+function forward(obj){
   if(poistion == amount ){
     poistion = 1;
   }
   else{
     poistion +=1;
   }
-  loop(arr)
+  loop(obj)
 }
 
-function reverse(arr){
+function reverse(obj){
   if(poistion <= 1){
     poistion = amount
   }else{
     poistion -= 1
   }
-  loop(arr)
+  loop(obj)
 }
 
 function displayOut(num , tag){
@@ -98,44 +102,58 @@ function teamCreate(val){
 }
 
 function addPlayer(obj){
-    obj["player" + (Object.keys(obj).length + 1)] = $("input[name=add]").val()
-    console.log(obj)
+  obj["player" + (Object.keys(obj).length + 1)] = $("input[name=add]").val()
+  console.log(team)
+}
+
+function cleanUp(obj){
+  var arr = []
+  for(var keys in obj){
+    arr.push(obj[keys])
+    delete obj[keys]
+  }
+
+  for(var i = 0; i < arr.length; i++){
+    team["player" + (i + 1)] = arr[i];
+  }
 }
 
 function removePlayer(obj,val){
+  val = val.trim().toLowerCase()
   console.log(val)
   for(var keys in obj){
-    if(val == obj[keys]){
+    if(val == obj[keys].trim().toLowerCase()){
       delete obj[keys]
-      console.log("here")
+
     }
+
   }
+  cleanUp(team)
 }
 
 
 $(document).ready(function(){
   amount = $("#amount").val()
   displayOut($("#amount").val(), "spot")
-  playerReady(players);
+  playerReady(team);
   // controls player movement
   $("#reverse").click(function(){
-    reverse(players)
-  })
+    reverse(team)
+  });
   $("#forward").click(function(){
-    forward(players)
-  })
+    forward(team)
+  });
 
   //Changes the amount of players
   $("#amount").change(function(){
     amount = $("#amount").val()
     displayOut($("#amount").val(), "spot")
-  })
+  });
 
   //getting information for team creation form
   $('input[name=playerNumber]').on("change", function(){
     displayOut($('input[name=playerNumber]:checked').val(), "box")
-
-  })
+  });
 
   //Creating a team
   $("#create").on("click", function(){
@@ -145,7 +163,12 @@ $(document).ready(function(){
   $("#create-finish").on("click", function(){
     $("#teamBox").removeClass("active")
     teamCreate($('input[name=playerNumber]:checked').val())
+    playerReady(team);
     console.log(team)
+  })
+  $("#create-cancel").on("click", function(){
+    $("#teamBox").removeClass("active")
+
   })
 
   //adding Players
@@ -155,7 +178,12 @@ $(document).ready(function(){
   $("#add-finish").on("click", function(){
     $("#addPlayers").removeClass("active")
     addPlayer(team)
-  })
+    playerReady(team);
+
+  });
+  $("#add-cancel").on("click", function(){
+    $("#addPlayers").removeClass("active")
+  });
 
   //Removing Players
   $("#remove").on("click", function(){
@@ -163,9 +191,12 @@ $(document).ready(function(){
   })
   $("#remove-finish").on("click", function(){
     $("#removePlayer").removeClass("active")
+    removePlayer(team,$("input[name=remove]").val());
+    playerReady(team);
     console.log(team)
-    removePlayer(team,$("input[name=remove]").val())
-    console.log(team)
+  })
+  $("#remove-cancel").on("click", function(){
+    $("#removePlayer").removeClass("active")
   })
 
   //changing players names by clicking
