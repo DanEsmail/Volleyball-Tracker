@@ -1,7 +1,21 @@
-var players =[ "Rachel","Alexis","Kushi",  "Caityln",  "Hannah", "Kushali",  "Kaylee", "Mahi",];
 var poistion = 1;
-var testArr =[1,2,3,4,5,6,7,8,9];
 var amount = 6;
+
+var testTeam ={
+  "player1":{
+    "name": "Dan",
+    "status": "in"
+  },
+  "player2":{
+    "name": "Kevin",
+    "status": "in"
+  },
+  "player3":{
+    "name": "Chris",
+    "status": "in"
+  },
+
+}
 
 var team = {}
 
@@ -133,6 +147,11 @@ function removePlayer(obj,val){
 
 
 $(document).ready(function(){
+  console.log(testTeam)
+  console.log(testTeam['player1']["name"])
+
+
+  // setting up the court
   amount = $("#amount").val()
   displayOut($("#amount").val(), "spot")
   playerReady(team);

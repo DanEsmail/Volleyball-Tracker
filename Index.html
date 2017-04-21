@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Volleyball Tracker</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./test.css">
 
   </head>
   <body>
@@ -15,25 +15,26 @@
           <li class="nav-bar"><a href="#" id="create">Create Team</a></li>
           <li class="nav-bar"><a href="#" id="add">Add Player</a></li>
           <li class="nav-bar"><a href="#" id="remove">Remove Player</a></li>
+          <li class="nav-bar"><a href="#" id="manage">Manage Roaster</a></li>
       </ul>
     </div>
 
 
 <!-- Volleyball Court -->
-<div class=container>
+<div class="container">
   <div class="court">
     <div class="row">
       <div class="col-md-3 right-side">
-        <div class="top-row"> <p class="player" id="spot3">spot4</p> </div>
-        <div class="bottom-row"> <p class="player" id="spot2">spot5</p> </div>
+        <div class="top-row zone"> <p class="player" id="spot3">spot4</p> </div>
+        <div class="bottom-row zone"> <p class="player" id="spot2">spot5</p> </div>
       </div>
       <div class="col-md-3 center-side">
-        <div class="top-row"> <p class="player" id="spot4">spot3</p> </div>
-        <div class="bottom-row"> <p class="player" id="spot1">spot6</p> </div>
+        <div class="top-row zone"> <p class="player" id="spot4">spot3</p> </div>
+        <div class="bottom-row zone"> <p class="player" id="spot1">spot6</p> </div>
       </div>
       <div class="col-md-3 left-side">
-        <div class="top-row">  <p class="player" id="spot5">spot2</p> </div>
-        <div class="bottom-row"> <p class="player" id="spot6">spot1</p> </div>
+        <div class="top-row zone">  <p class="player" id="spot5">spot2</p> </div>
+        <div class="bottom-row zone"> <p class="player" id="spot6">spot1</p> </div>
       </div>
       <div class="col-md-3">
         <div class="out">
@@ -60,7 +61,7 @@
 
 <!-- Creating Team Box -->
 
-<div id="teamBox">
+<div id="teamBox" class="transition-box">
   <h3>Create Team</h3>
   <div id="teamCreate">
     <!-- Radio Buttons -->
@@ -128,35 +129,53 @@
       </div>
     </div>
     <!-- Player box End -->
-    <button id="create-finish"> Finished </button>
+    <button id="create-finish" class="box-finish"> Finished </button>
     <button id="create-cancel"> Cancel </button>
   </div>
 </div>
 
 <!-- adding players -->
 
-<div id="addPlayers">
+<div id="addPlayers" class="transition-box">
   <div class="player-form">
     <div class="player-box">
       <label>New Player</label> <br>
       <input type="text" name="add" placeholder="Players Name"> <br> <br>
     </div>
-      <button id="add-finish"> Finished </button>
+      <button id="add-finish" class="box-finish"> Finished </button>
       <button id="add-cancel"> Cancel </button>
   </div>
 </div>
 
 <!-- Removing Players -->
 
-<div id="removePlayer">
+<div id="removePlayer" class="transition-box">
   <div class="player-form">
     <div class=player-box>
       <label>Remove Player</label> <br>
       <input type="text" name="remove" placeholder="Players Name"> <br> <br>
     </div>
   </div>
-  <button id="remove-finish"> Finished </button>
+  <button id="remove-finish" class="box-finish"> Finished </button>
   <button id="remove-cancel"> Cancel </button>
+</div>
+
+<!-- manage Roaster Box -->
+<div id="manageRoaster" class="transition-box">
+  <h3>Roaster Manage</h3>
+  <div class="player-form">
+    <div id="manage-roaster">
+      <div class="roaster-heading">
+        <h4>Active Player</h4>
+        <h4>Manage</h4>
+        <h4>Benched Player</h4>
+    </div>
+    <div class="roaster-player">
+      <p>Test</p>
+      <button>-</button>
+      <button>+</button>
+    </div>
+  </div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

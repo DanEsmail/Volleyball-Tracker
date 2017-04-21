@@ -1,89 +1,55 @@
-
-/* making the court*/
-.court div div div{
-  color: green;
-  border: solid;
-  height: 100px;
-  text-align: center;
-}
-
-.bottom-row{
-  margin-top: 10px;
-}
-
-.court .out{
-  color: blue;
-  border: dotted;
-  height: auto;
-}
-
-li{
-  color:blue;
-}
-
-.player{
-  margin-top: 30px;
-}
-.container{
-  margin-top: 50px;
-}
-
-.bottom-row{
-  margin-top: 50px;
-}
-
-button{
-  margin-top: 20px;
-}
-
-h1{
-  color: Black;
-  text-align: center;
-}
-
-select{
-  margin-top: 10px;
-}
-
-/* nav bar */
-#nav{
-
-  text-align: center;
-}
-
-ul{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #FA9C4C;
-}
-
-.nav-bar{
-  display: inline-block;
-
-}
-
-.nav-bar a{
-  display: inline-block;
+h1 {
   color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+  text-align: center; }
 
+/* Nav Bar */
+#nav {
+  text-align: center; }
+  #nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #FA9C4C; }
+    #nav ul .nav-bar {
+      display: inline-block; }
+      #nav ul .nav-bar a {
+        display: inline-block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none; }
+      #nav ul .nav-bar a:hover {
+        background-color: blue;
+        color: white; }
 
-}
+/* Making the court*/
+.container {
+  margin-top: 50px; }
+  .container .court .zone {
+    color: green;
+    border: solid;
+    height: 100px;
+    text-align: center; }
+    .container .court .zone .player {
+      margin-top: 30px; }
+    .container .court .zone .bottom-row {
+      margin-top: 50px; }
+  .container .court .bottom-row {
+    margin-top: 10px; }
+  .container .court .out {
+    color: blue;
+    border: dotted;
+    height: auto; }
+    .container .court .out li {
+      color: blue; }
+    .container .court .out button {
+      margin-top: 20px; }
+    .container .court .out select {
+      margin-top: 10px; }
 
-li a:hover{
-    background-color: blue;
-    color: white;
-
-}
-
-
-
-/* Creating Team Box */
-#teamBox{
+/* Common Tranistion Class */
+.transition-box {
   margin-left: 35%;
   margin-top: 50px;
   margin-bottom: 20px;
@@ -92,101 +58,52 @@ li a:hover{
   height: auto;
   z-index: 1;
   position: absolute;
+  color: black;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s, visibility .5s; }
+  .transition-box.active {
+    opacity: 1;
+    visibility: visible; }
+
+.player-form {
+  margin-top: 20px;
+  margin-left: 15px; }
+
+.box-finish {
+  margin-left: 30%;
+  margin-bottom: 10px; }
+
+/* Team Box */
+#teamBox {
   top: 75px;
-  background-color:green;
-  color: black;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .5s, visibility .5s;
+  background-color: green; }
+  #teamBox h3 {
+    text-align: center; }
+  #teamBox .radio-box {
+    margin-left: 30px;
+    display: inline-block;
+    text-align: center; }
+    #teamBox .radio-box label {
+      display: block; }
 
-}
+/* Add Player Box */
+#addPlayers {
+  background-color: green; }
 
-#teamBox.active{
+/* Remove Player Box*/
+#removePlayer {
+  background-color: blue; }
+
+/* ManageRoaster */
+#manageRoaster {
   opacity: 1;
-  visibility: visible;
-}
-/* radio box*/
-.radio-box{
-  margin-left: 30px;
-  display:inline-block;
-  text-align: center;
-}
-.radio-box label{
-  display: block;
-}
-
-h3{
-  text-align: center;
-}
-/* Player name Box*/
-.player-form{
-  margin-top: 20px;
-  margin-left: 15px;
-}
-.player-box{
-
-}
-
-/*form button*/
-#create-finish{
-  margin-left: 30%;
-  margin-bottom: 10px;
-}
-
-
-/*add players box */
-#addPlayers{
-  border: solid;
-  background-color: green;
-  margin-left: 35%;
-  margin-top: 50px;
-  margin-bottom: 20px;
-  width: 400px;
-  height: auto;
-  z-index: 1;
-  position: absolute;
-  height: auto;
-  color: black;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .5s, visibility .5s;
-}
-
-#addPlayers.active{
-  opacity: 1;
-  visibility: visible;
-}
-
-#add-finish{
-  margin-left: 30%;
-  margin-bottom: 10px;
-}
-
-/* Remove Player Box */
-
-#removePlayer{
-  border: solid;
-  background-color: blue;
-  margin-left: 35%;
-  margin-top: 50px;
-  margin-bottom: 20px;
-  width: 400px;
-  height: auto;
-  z-index: 1;
-  position: absolute;
-  height: auto;
-  color: black;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .5s, visibility .5s;
-}
-
-#removePlayer.active{
-  opacity: 1;
-  visibility: visible;
-}
-
-#remove-finish{
-  margin-left: 30%;
-  margin-bottom: 10px;
-}
+  visibility: visible; }
+  #manageRoaster .roaster-heading {
+    text-align: center; }
+    #manageRoaster .roaster-heading h4 {
+      display: inline-block;
+      margin-left: 10px;
+      margin-right: 10px; }
+  #manageRoaster .roaster-player p {
+    display: inline-block; }
