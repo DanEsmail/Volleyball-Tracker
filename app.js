@@ -68,7 +68,6 @@ function loopReverse(courtNum){
   console.log(arr)
 }
 
-
 function loop(obj){
     var num = poistion;
     console.log(num)
@@ -190,17 +189,12 @@ function selectPlayer(obj){
   for(var keys in obj){
     $("#changePlayer").append("<option class='player-option' value="+ obj[keys] + ">" + obj[keys] + "</option>")
   }
+}
 
 function finishSelect(){
 
 }
 
-  /*$("#change").append(`
-    <select id='changePlayer' name='change-player'>
-    <option value="6">Six</option>
-    <option value="7">Seven</option>
-  </select>`)*/
-}
 
 $(document).ready(function(){
   console.log(testTeam)
@@ -277,19 +271,30 @@ $(document).ready(function(){
     $("#removePlayer").removeClass("active")
   })
 
-
   //changing players names by clicking
   $(".player").on("click", function(){
     $(this).html("working");
-    $(this).addClass("working")
-    selectPlayer(team);
+    $(this).addClass("working");
+    boxPosition($(this).offset());
+    selectPlayer(exampleTeam);
     $("#changePlayer").on("change", function(){
       $(".working").html($("#changePlayer").val())
+      $("#change-box").removeClass("active")
       $(".working").removeClass("working")
       $(".player-option").remove()
+
     })
   })
-
-
-
 })
+
+function boxPosition(obj){
+  var top = obj["top"] - 29;
+  var left = obj["left"] + 220;
+
+  $("#change-box").css({
+    "top": top ,
+    "left": left
+  })
+
+  $("#change-box").addClass("active");
+}

@@ -154,13 +154,19 @@ h1{
 /* Change player box */
 
 #change-box{
-  margin-left: 35%;
-  margin-top: 50px;
-  margin-bottom: 20px;
   border: solid;
   width: 400px;
   height: auto;
-  background-color: purple;
+  background-color: green;
+  position: fixed;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s, visibility .5s;
+  &.active{
+    opacity: 1;
+    visibility: visible;
+  }
   h3{
     text-align: center;
   }
