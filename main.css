@@ -97,8 +97,7 @@ h1 {
 
 /* ManageRoaster */
 #manageRoaster {
-  opacity: 1;
-  visibility: visible; }
+  z-index: 0; }
   #manageRoaster .roaster-heading {
     text-align: center; }
     #manageRoaster .roaster-heading h4 {
@@ -107,3 +106,13 @@ h1 {
       margin-right: 10px; }
   #manageRoaster .roaster-player p {
     display: inline-block; }
+
+/* Change player box */
+#change-box {
+  margin-left: 35%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  border: solid;
+  width: 400px;
+  height: auto;
+  background-color: purple; }

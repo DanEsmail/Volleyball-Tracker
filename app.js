@@ -19,6 +19,16 @@ var testTeam ={
 
 var team = {}
 
+var exampleTeam = {
+  "player1": "Dan",
+  "player2": "Kevin",
+  "player3": "Joe",
+  "player4": "Neil",
+  "player5": "Chris",
+  "player6": "Kim",
+  "player7": "Dar"
+}
+
 function playerReady(obj){
   var num = 1;
   if(Object.keys(obj).length > 0){
@@ -28,6 +38,36 @@ function playerReady(obj){
     }
   }
 }
+
+function LoopFoward(courtNum){
+  var num = poistion
+  var arr =[]
+  for( var i = 0; i<courtNum ; i++){
+    arr.push($("#spot"+(i+1)).html())
+  }
+  for( var i = 0; i<courtNum ; i++){
+    if((i+1) == courtNum){
+      $("#spot1").html(arr[i])
+    }
+      $("#spot" + (i+2)).html(arr[i])
+  }
+  console.log(arr)
+}
+
+function loopReverse(courtNum){
+  var arr =[]
+  for( var i = 0; i<courtNum ; i++){
+    arr.push($("#spot"+(i+1)).html())
+  }
+  for( var i = 0; i<courtNum ; i++){
+    if((i) == 0){
+      $("#spot" + courtNum).html(arr[i])
+    }
+      $("#spot" + (i)).html(arr[i])
+  }
+  console.log(arr)
+}
+
 
 function loop(obj){
     var num = poistion;
@@ -51,7 +91,7 @@ function forward(obj){
   else{
     poistion +=1;
   }
-  loop(obj)
+  wordLoop(amount)
 }
 
 function reverse(obj){
@@ -60,7 +100,7 @@ function reverse(obj){
   }else{
     poistion -= 1
   }
-  loop(obj)
+  wordLoop(amount)
 }
 
 function displayOut(num , tag){
@@ -145,6 +185,22 @@ function removePlayer(obj,val){
   cleanUp(team)
 }
 
+function selectPlayer(obj){
+    $("#changePlayer").append("<option class='player-option'></option>")
+  for(var keys in obj){
+    $("#changePlayer").append("<option class='player-option' value="+ obj[keys] + ">" + obj[keys] + "</option>")
+  }
+
+function finishSelect(){
+
+}
+
+  /*$("#change").append(`
+    <select id='changePlayer' name='change-player'>
+    <option value="6">Six</option>
+    <option value="7">Seven</option>
+  </select>`)*/
+}
 
 $(document).ready(function(){
   console.log(testTeam)
@@ -157,10 +213,13 @@ $(document).ready(function(){
   playerReady(team);
   // controls player movement
   $("#reverse").click(function(){
-    reverse(team)
+    //reverse(team)
+    loopReverse(amount)
   });
   $("#forward").click(function(){
-    forward(team)
+    //forward(team)
+    LoopFoward(amount)
+
   });
 
   //Changes the amount of players
@@ -218,8 +277,19 @@ $(document).ready(function(){
     $("#removePlayer").removeClass("active")
   })
 
+
   //changing players names by clicking
   $(".player").on("click", function(){
-    $(this).html("working")
+    $(this).html("working");
+    $(this).addClass("working")
+    selectPlayer(team);
+    $("#changePlayer").on("change", function(){
+      $(".working").html($("#changePlayer").val())
+      $(".working").removeClass("working")
+      $(".player-option").remove()
+    })
   })
+
+
+
 })

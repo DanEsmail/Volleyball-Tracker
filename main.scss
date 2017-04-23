@@ -135,8 +135,7 @@ h1{
 /* ManageRoaster */
 
 #manageRoaster{
-    opacity: 1;
-    visibility: visible;
+    z-index: 0;
   .roaster-heading{
     text-align: center;
     h4{
@@ -149,5 +148,20 @@ h1{
     p{
       display: inline-block;
     }
+  }
+}
+
+/* Change player box */
+
+#change-box{
+  margin-left: 35%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  border: solid;
+  width: 400px;
+  height: auto;
+  background-color: purple;
+  h3{
+    text-align: center;
   }
 }
