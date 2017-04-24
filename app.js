@@ -12,6 +12,22 @@ var testTeam ={
   },
   "player3":{
     "name": "Chris",
+    "status": "out"
+  },
+  "player4":{
+    "name": "Joe",
+    "status": "in"
+  },
+  "player5":{
+    "name": "Neil",
+    "status": "in"
+  },
+  "player6":{
+    "name": "Kim",
+    "status": "in"
+  },
+  "player7":{
+    "name": "Dar",
     "status": "in"
   },
 
@@ -171,6 +187,10 @@ function cleanUp(obj){
   }
 }
 
+function objCleanUp(){
+
+}
+
 function removePlayer(obj,val){
   val = val.trim().toLowerCase()
   console.log(val)
@@ -191,9 +211,43 @@ function selectPlayer(obj){
   }
 }
 
-function finishSelect(){
+function boxPosition(obj){
+  var top = obj["top"] - 29;
+  var left = obj["left"] + 220;
 
+  $("#change-box").css({
+    "top": top ,
+    "left": left
+  })
+
+  $("#change-box").addClass("active");
 }
+
+function ManageSetUp(obj){
+  for(var keys in obj){
+    if(obj[keys]["status"] == "in"){
+      $(".in").append("<br class='manageClass'><p class='" + obj[keys]["name"] + " manageClass'>" + obj[keys]["name"] + "</p>")
+      $(".manageButtons").append(`
+        <br class='manageClass'>
+        <div>
+          <button class="`  + obj[keys]["name"] +  ` plus manageClass">+</button>
+          <button class="`  + obj[keys]["name"] +  ` minus manageClass">-</button>
+        </div>`)
+      $(".manage-out").append("<br class='manageClass'><p class='" + obj[keys]["name"] + " manageClass'>something</p>")
+    }else{
+      $(".manage-out").append("<br class='manageClass'><p class='" + obj[keys]["name"] + " manageClass'>" + obj[keys]["name"] + "</p>")
+      $(".manageButtons").append(`
+        <br class='manageClass'>
+        <div>
+          <button class="`  + obj[keys]["name"] +  ` plus manageClass">+</button>
+          <button class="`  + obj[keys]["name"] +  ` minus manageClass">-</button>
+        </div>`)
+      $(".in").append("<br class='manageClass'><p class='" + obj[keys]["name"] + " manageClass'>something</p>")
+    }
+  }
+}
+
+
 
 
 $(document).ready(function(){
@@ -285,16 +339,55 @@ $(document).ready(function(){
 
     })
   })
-})
 
-function boxPosition(obj){
-  var top = obj["top"] - 29;
-  var left = obj["left"] + 220;
 
-  $("#change-box").css({
-    "top": top ,
-    "left": left
+  //Managing the roaster
+  $("#manage").on("click", function(){
+    $("#manageRoaster").addClass("active")
+    ManageSetUp(testTeam);
+
+  })
+  $(document).on("click", ".minus", function(){
+      mangeSwitch($(this).attr("class"), "out", testTeam)
+    })
+  $(document).on("click", ".plus", function(){
+      mangeSwitch($(this).attr("class"), "in", testTeam)
+    })
+  $("#manage-finish").on("click", function(){
+    $("#manageRoaster").removeClass("active")
+    $(".manageClass").remove()
+  })
+  $("#manage-cancel").on("click", function(){
+    $("#manageRoaster").removeClass("active")
+    $(".manageClass").remove()
   })
 
-  $("#change-box").addClass("active");
+
+})
+
+
+function mangeSwitch(name, status, obj){
+  var arr = name.split(" ")
+  if(status === "in"){
+    $(".in ." + arr[0]).html(arr[0])
+    $(".manage-out ." + arr[0]).html("something")
+    for(var keys in obj){
+      if(obj[keys]["name"] === arr[0]){
+        console.log(obj[keys]["status"])
+        obj[keys]["status"] = "in"
+        break
+      }
+    }
+  }else{
+    $(".in ." + arr[0]).html("something")
+    $(".manage-out ." + arr[0]).html(arr[0])
+    for(var keys in obj){
+      if(obj[keys]["name"] === arr[0]){
+        console.log(obj[keys]["status"])
+        obj[keys]["status"] = "out"
+        break
+      }
+    }
+  }
+  console.log(obj)
 }

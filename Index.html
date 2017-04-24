@@ -44,7 +44,7 @@
             <li id="spot9">out 2</li>
             <li id="spot10">out 1</li>
           </ol>
-          <button id="reverse"> Reverse one </button>
+          <button id="reverse" class="something"> Reverse one </button>
           <button id="forward"> Forward one </button>
           <select id="amount" name="amountPlayers">
             <option value="6">Six</option>
@@ -161,24 +161,30 @@
 </div>
 
 <!-- manage Roaster Box -->
-<div id="manageRoaster" class="transition-box">
-  <h3>Roaster Manage</h3>
-  <div class="player-form">
-    <div id="manage-roaster">
-      <div class="roaster-heading">
-        <h4>Active Player</h4>
-        <h4>Manage</h4>
-        <h4>Benched Player</h4>
-    </div>
-      <div class="roaster-player">
-        <p>Test</p>
-        <button>-</button>
-        <button>+</button>
+<div class="container">
+  <div id="manageRoaster" >
+    <h3>Roaster Manage</h3>
+    <div class="player-form">
+      <div id="manage-roaster">
+        <div class="row">
+            <div class="col-md-4 in">
+              <h4> In</h4>
+            </div>
+            <div class="col-md-4 manageButtons">
+              <h4> Manage</h4>
+              <div>
+            </div>
+            </div>
+            <div class="col-md-4 manage-out">
+              <h4> Out</h4>
+            </div>
+        </div>
+        <button id="manage-finish" class="box-finish"> Finished </button>
+        <button id="manage-cancel"> Cancel </button>
       </div>
     </div>
   </div>
 </div>
-
 <!-- change player box -->
 <div id="change-box">
   <h3>Change player</h3>
