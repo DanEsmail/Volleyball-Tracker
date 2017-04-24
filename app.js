@@ -45,16 +45,118 @@ var exampleTeam = {
   "player7": "Dar"
 }
 
-function playerReady(obj){
-  var num = 1;
-  if(Object.keys(obj).length > 0){
-    for(var keys in obj){
-      $("#spot" + num).html(obj[keys])
-      num += 1;
+//Fixed for 0.1.5
+
+
+function ManageSetUp(obj){
+  for(var keys in obj){
+    if(obj[keys]["status"] == "in"){
+      $(".in").append("<br class='manageClass'><p class='" + obj[keys]["name"] + " manageClass'>" + obj[keys]["name"] + "</p>")
+      $(".manageButtons").append(`
+        <br class='manageClass'>
+        <div>
+          <button class="`  + obj[keys]["name"] +  ` plus manageClass">+</button>
+          <button class="`  + obj[keys]["name"] +  ` minus manageClass">-</button>
+        </div>`)
+      $(".manage-out").append("<br class='manageClass'><p class='" + obj[keys]["name"] + " manageClass'>something</p>")
+    }else{
+      $(".manage-out").append("<br class='manageClass'><p class='" + obj[keys]["name"] + " manageClass'>" + obj[keys]["name"] + "</p>")
+      $(".manageButtons").append(`
+        <br class='manageClass'>
+        <div>
+          <button class="`  + obj[keys]["name"] +  ` plus manageClass">+</button>
+          <button class="`  + obj[keys]["name"] +  ` minus manageClass">-</button>
+        </div>`)
+      $(".in").append("<br class='manageClass'><p class='" + obj[keys]["name"] + " manageClass'>something</p>")
     }
   }
 }
 
+function mangeSwitch(name, status, obj){
+  var arr = name.split(" ")
+  if(status === "in"){
+    $(".in ." + arr[0]).html(arr[0])
+    $(".manage-out ." + arr[0]).html("something")
+    for(var keys in obj){
+      if(obj[keys]["name"] === arr[0]){
+        obj[keys]["status"] = "in"
+        break
+      }
+    }
+  }else{
+    $(".in ." + arr[0]).html("something")
+    $(".manage-out ." + arr[0]).html(arr[0])
+    for(var keys in obj){
+      if(obj[keys]["name"] === arr[0]){
+        obj[keys]["status"] = "out"
+        break
+      }
+    }
+  }
+}
+
+function boxPosition(obj){
+  var top = obj["top"] - 29;
+  var left = obj["left"] + 220;
+
+  $("#change-box").css({
+    "top": top ,
+    "left": left
+  })
+
+  $("#change-box").addClass("active");
+}
+
+function selectPlayer(obj){
+    $("#changePlayer").append("<option class='player-option'></option>")
+  for(var keys in obj){
+    $("#changePlayer").append("<option class='player-option' value="+ obj[keys] + ">" + obj[keys] + "</option>")
+  }
+}
+
+function teamCreate(val){
+  for(var i = 0; i<val; i++){
+    team["player" + (i+1)] = {
+      "name": $("input[name=player"+ (i+1) +"]").val(),
+      "status": $("input[name=player" + (i+1) + "-status]:checked").val()
+    }
+  }
+  console.log(team)
+}
+
+function removePlayer(obj,val){
+  val = val.trim().toLowerCase()
+
+  for(var keys in obj){
+    if(val == obj[keys]["name"].trim().toLowerCase()){
+      delete obj[keys]
+    }
+
+  }
+  return cleanUp(obj)
+}
+
+function cleanUp(obj){
+  var newObj = {}
+  var i = 1;
+  for(var keys in obj){
+    newObj["player" + i] = obj[keys];
+    i += 1;
+  }
+  return newObj;
+
+}
+
+function addPlayer(obj){
+  obj["player" + (Object.keys(obj).length + 1)] = {
+    "name": $("input[name=add]").val(),
+    "status": $("input[name=player-add-status]:checked").val()
+  }
+  console.log(team);
+
+}
+
+//Works as of 0.1.5
 function LoopFoward(courtNum){
   var num = poistion
   var arr =[]
@@ -82,40 +184,6 @@ function loopReverse(courtNum){
       $("#spot" + (i)).html(arr[i])
   }
   console.log(arr)
-}
-
-function loop(obj){
-    var num = poistion;
-    console.log(num)
-    for(var keys in obj){
-      if(num <= amount ){
-        $("#spot" + num).html(obj[keys])
-        num += 1
-      }else{
-        num = 1
-        $("#spot" + num).html(obj[keys])
-        num += 1
-      }
-    }
-}
-
-function forward(obj){
-  if(poistion == amount ){
-    poistion = 1;
-  }
-  else{
-    poistion +=1;
-  }
-  wordLoop(amount)
-}
-
-function reverse(obj){
-  if(poistion <= 1){
-    poistion = amount
-  }else{
-    poistion -= 1
-  }
-  wordLoop(amount)
 }
 
 function displayOut(num , tag){
@@ -163,102 +231,29 @@ function displayOut(num , tag){
   }
 }
 
-function teamCreate(val){
-  for(var i = 0; i < val; i++){
-    team["player" + (i+1)] = $("input[name=player"+ (i+1) +"]").val()
-  }
-  console.log(team)
-}
 
-function addPlayer(obj){
-  obj["player" + (Object.keys(obj).length + 1)] = $("input[name=add]").val()
-  console.log(team)
-}
-
-function cleanUp(obj){
-  var arr = []
-  for(var keys in obj){
-    arr.push(obj[keys])
-    delete obj[keys]
-  }
-
-  for(var i = 0; i < arr.length; i++){
-    team["player" + (i + 1)] = arr[i];
-  }
-}
-
-function objCleanUp(){
-
-}
-
-function removePlayer(obj,val){
-  val = val.trim().toLowerCase()
-  console.log(val)
-  for(var keys in obj){
-    if(val == obj[keys].trim().toLowerCase()){
-      delete obj[keys]
-
-    }
-
-  }
-  cleanUp(team)
-}
-
-function selectPlayer(obj){
-    $("#changePlayer").append("<option class='player-option'></option>")
-  for(var keys in obj){
-    $("#changePlayer").append("<option class='player-option' value="+ obj[keys] + ">" + obj[keys] + "</option>")
-  }
-}
-
-function boxPosition(obj){
-  var top = obj["top"] - 29;
-  var left = obj["left"] + 220;
-
-  $("#change-box").css({
-    "top": top ,
-    "left": left
-  })
-
-  $("#change-box").addClass("active");
-}
-
-function ManageSetUp(obj){
-  for(var keys in obj){
-    if(obj[keys]["status"] == "in"){
-      $(".in").append("<br class='manageClass'><p class='" + obj[keys]["name"] + " manageClass'>" + obj[keys]["name"] + "</p>")
-      $(".manageButtons").append(`
-        <br class='manageClass'>
-        <div>
-          <button class="`  + obj[keys]["name"] +  ` plus manageClass">+</button>
-          <button class="`  + obj[keys]["name"] +  ` minus manageClass">-</button>
-        </div>`)
-      $(".manage-out").append("<br class='manageClass'><p class='" + obj[keys]["name"] + " manageClass'>something</p>")
-    }else{
-      $(".manage-out").append("<br class='manageClass'><p class='" + obj[keys]["name"] + " manageClass'>" + obj[keys]["name"] + "</p>")
-      $(".manageButtons").append(`
-        <br class='manageClass'>
-        <div>
-          <button class="`  + obj[keys]["name"] +  ` plus manageClass">+</button>
-          <button class="`  + obj[keys]["name"] +  ` minus manageClass">-</button>
-        </div>`)
-      $(".in").append("<br class='manageClass'><p class='" + obj[keys]["name"] + " manageClass'>something</p>")
+//Needs to be looked at and changed 0.1.5
+function playerReady(obj){
+  var i = 1;
+  if(Object.keys(obj).length > 0){
+    for(var keys in obj){
+      if(obj[keys]["status"] === "in"){
+        $("#spot" + i).html(obj[keys]["name"]);
+        i += 1;
+      }
     }
   }
 }
-
-
+//Might need to be thrown out 0.1.5
 
 
 $(document).ready(function(){
-  console.log(testTeam)
-  console.log(testTeam['player1']["name"])
-
 
   // setting up the court
   amount = $("#amount").val()
   displayOut($("#amount").val(), "spot")
   playerReady(team);
+
   // controls player movement
   $("#reverse").click(function(){
     //reverse(team)
@@ -317,9 +312,9 @@ $(document).ready(function(){
   })
   $("#remove-finish").on("click", function(){
     $("#removePlayer").removeClass("active")
-    removePlayer(team,$("input[name=remove]").val());
-    playerReady(team);
+    team = removePlayer(team,$("input[name=remove]").val());
     console.log(team)
+    playerReady(team);
   })
   $("#remove-cancel").on("click", function(){
     $("#removePlayer").removeClass("active")
@@ -340,21 +335,22 @@ $(document).ready(function(){
     })
   })
 
-
   //Managing the roaster
   $("#manage").on("click", function(){
     $("#manageRoaster").addClass("active")
-    ManageSetUp(testTeam);
+    ManageSetUp(team);
+
 
   })
   $(document).on("click", ".minus", function(){
-      mangeSwitch($(this).attr("class"), "out", testTeam)
+      mangeSwitch($(this).attr("class"), "out", team)
     })
   $(document).on("click", ".plus", function(){
-      mangeSwitch($(this).attr("class"), "in", testTeam)
+      mangeSwitch($(this).attr("class"), "in", team)
     })
   $("#manage-finish").on("click", function(){
     $("#manageRoaster").removeClass("active")
+    playerReady(team);
     $(".manageClass").remove()
   })
   $("#manage-cancel").on("click", function(){
@@ -362,32 +358,4 @@ $(document).ready(function(){
     $(".manageClass").remove()
   })
 
-
 })
-
-
-function mangeSwitch(name, status, obj){
-  var arr = name.split(" ")
-  if(status === "in"){
-    $(".in ." + arr[0]).html(arr[0])
-    $(".manage-out ." + arr[0]).html("something")
-    for(var keys in obj){
-      if(obj[keys]["name"] === arr[0]){
-        console.log(obj[keys]["status"])
-        obj[keys]["status"] = "in"
-        break
-      }
-    }
-  }else{
-    $(".in ." + arr[0]).html("something")
-    $(".manage-out ." + arr[0]).html(arr[0])
-    for(var keys in obj){
-      if(obj[keys]["name"] === arr[0]){
-        console.log(obj[keys]["status"])
-        obj[keys]["status"] = "out"
-        break
-      }
-    }
-  }
-  console.log(obj)
-}
