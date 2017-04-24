@@ -15,25 +15,26 @@
           <li class="nav-bar"><a href="#" id="create">Create Team</a></li>
           <li class="nav-bar"><a href="#" id="add">Add Player</a></li>
           <li class="nav-bar"><a href="#" id="remove">Remove Player</a></li>
+          <li class="nav-bar"><a href="#" id="manage">Manage Roaster</a></li>
       </ul>
     </div>
 
 
 <!-- Volleyball Court -->
-<div class=container>
+<div class="container">
   <div class="court">
     <div class="row">
       <div class="col-md-3 right-side">
-        <div class="top-row"> <p class="player" id="spot3">spot4</p> </div>
-        <div class="bottom-row"> <p class="player" id="spot2">spot5</p> </div>
+        <div class="top-row zone"> <p class="player" id="spot3">spot4</p> </div>
+        <div class="bottom-row zone"> <p class="player" id="spot2">spot5</p> </div>
       </div>
       <div class="col-md-3 center-side">
-        <div class="top-row"> <p class="player" id="spot4">spot3</p> </div>
-        <div class="bottom-row"> <p class="player" id="spot1">spot6</p> </div>
+        <div class="top-row zone"> <p class="player" id="spot4">spot3</p> </div>
+        <div class="bottom-row zone"> <p class="player" id="spot1">spot6</p> </div>
       </div>
       <div class="col-md-3 left-side">
-        <div class="top-row">  <p class="player" id="spot5">spot2</p> </div>
-        <div class="bottom-row"> <p class="player" id="spot6">spot1</p> </div>
+        <div class="top-row zone">  <p class="player" id="spot5">spot2</p> </div>
+        <div class="bottom-row zone"> <p class="player" id="spot6">spot1</p> </div>
       </div>
       <div class="col-md-3">
         <div class="out">
@@ -43,7 +44,7 @@
             <li id="spot9">out 2</li>
             <li id="spot10">out 1</li>
           </ol>
-          <button id="reverse"> Reverse one </button>
+          <button id="reverse" class="something"> Reverse one </button>
           <button id="forward"> Forward one </button>
           <select id="amount" name="amountPlayers">
             <option value="6">Six</option>
@@ -60,7 +61,7 @@
 
 <!-- Creating Team Box -->
 
-<div id="teamBox">
+<div id="teamBox" class="transition-box">
   <h3>Create Team</h3>
   <div id="teamCreate">
     <!-- Radio Buttons -->
@@ -88,73 +89,190 @@
     <div class="player-form" id="box1">
       <div class="player-box">
         <label>Player 1</label> <br>
-        <input type="text" name="player1" placeholder="Players Name"> <br> <br>
+        <input type="text" name="player1" placeholder="Players Name">
+        <div class="radio-box">
+          <lable for="in"> In </label>
+          <input type="radio" name="player1-status" value="in" checked="checked">
+          <lable for="out"> Out </label>
+          <input type="radio" name="player1-status" value="out">
+        </div>
+         <br> <br>
       </div>
       <div class="player-box" id="box2">
         <label>Player 2</label> <br>
-        <input type="text" name="player2" placeholder="Players Name"> <br> <br>
+        <input type="text" name="player2" placeholder="Players Name">
+        <div class="radio-box">
+          <lable for="in"> In </label>
+          <input type="radio" name="player2-status" value="in" checked="checked">
+          <lable for="out"> Out </label>
+          <input type="radio" name="player2-status" value="out">
+        </div>
+         <br> <br>
       </div>
       <div class="player-box" id="box3">
         <label>Player 3</label> <br>
-        <input type="text" name="player3" placeholder="Players Name"> <br> <br>
+        <input type="text" name="player3" placeholder="Players Name">
+        <div class="radio-box">
+          <lable for="in"> In </label>
+          <input type="radio" name="player3-status" value="in" checked="checked">
+          <lable for="out"> Out </label>
+          <input type="radio" name="player3-status" value="out">
+        </div>
+        <br> <br>
       </div>
       <div class="player-box" id="box4">
         <label>Player 4</label> <br>
-        <input type="text" name="player4" placeholder="Players Name"> <br> <br>
+        <input type="text" name="player4" placeholder="Players Name">
+        <div class="radio-box">
+          <lable for="in"> In </label>
+          <input type="radio" name="player4-status" value="in" checked="checked">
+          <lable for="out"> Out </label>
+          <input type="radio" name="player4-status" value="out">
+        </div>
+         <br> <br>
       </div>
       <div class="player-box" id="box5">
         <label>Player 5</label> <br>
-        <input type="text" name="player5" placeholder="Players Name"> <br> <br>
+        <input type="text" name="player5" placeholder="Players Name">
+        <div class="radio-box">
+          <lable for="in"> In </label>
+          <input type="radio" name="player5-status" value="in" checked="checked">
+          <lable for="out"> Out </label>
+          <input type="radio" name="player5-status" value="out">
+        </div>
+         <br> <br>
       </div>
       <div class="player-box" id="box6">
         <label>Player 6</label> <br>
-        <input type="text" name="player6" placeholder="Players Name"> <br> <br>
+        <input type="text" name="player6" placeholder="Players Name">
+        <div class="radio-box">
+          <lable for="in"> In </label>
+          <input type="radio" name="player6-status" value="in" checked="checked">
+          <lable for="out"> Out </label>
+          <input type="radio" name="player6-status" value="out">
+        </div>
+         <br> <br>
       </div>
       <div class="player-box" id="box7">
         <label>Player 7</label> <br>
-        <input type="text" name="player7" placeholder="Players Name"> <br> <br>
+        <input type="text" name="player7" placeholder="Players Name">
+        <div class="radio-box">
+          <lable for="in"> In </label>
+          <input type="radio" name="player7-status" value="in" checked="checked">
+          <lable for="out"> Out </label>
+          <input type="radio" name="player7-status" value="out">
+        </div>
+         <br> <br>
       </div>
       <div class="player-box" id="box8">
         <label>Player 8</label> <br>
-        <input type="text" name="player8" placeholder="Players Name"> <br> <br>
+        <input type="text" name="player8" placeholder="Players Name">
+        <div class="radio-box">
+          <lable for="in"> In </label>
+          <input type="radio" name="player8-status" value="in" checked="checked">
+          <lable for="out"> Out </label>
+          <input type="radio" name="player8-status" value="out">
+        </div>
+         <br> <br>
       </div>
       <div class="player-box" id="box9">
         <label>Player 9</label> <br>
-        <input type="text" name="player9" placeholder="Players Name"> <br> <br>
+        <input type="text" name="player9" placeholder="Players Name">
+        <div class="radio-box">
+          <lable for="in"> In </label>
+          <input type="radio" name="player9-status" value="in" checked="checked">
+          <lable for="out"> Out </label>
+          <input type="radio" name="player9-status" value="out">
+        </div>
+         <br> <br>
       </div>
       <div class="player-box" id="box10">
         <label>Player 10</label> <br>
-        <input type="text" name="player10" placeholder="Players Name"> <br> <br>
+        <input type="text" name="player10" placeholder="Players Name">
+        <div class="radio-box">
+          <lable for="in"> In </label>
+          <input type="radio" name="player10-status" value="in" checked="checked">
+          <lable for="out"> Out </label>
+          <input type="radio" name="player10-status" value="out">
+        </div>
+        <br> <br>
       </div>
     </div>
     <!-- Player box End -->
-    <button id="create-finish"> Finished </button>
+    <button id="create-finish" class="box-finish"> Finished </button>
+    <button id="create-cancel"> Cancel </button>
   </div>
 </div>
 
 <!-- adding players -->
 
-<div id="addPlayers">
+<div id="addPlayers" class="transition-box">
   <div class="player-form">
     <div class="player-box">
       <label>New Player</label> <br>
-      <input type="text" name="add" placeholder="Players Name"> <br> <br>
+      <input type="text" name="add" placeholder="Players Name">
+      <div class="radio-box">
+        <lable for="in"> In </label>
+        <input type="radio" name="player-add-status" value="in" checked="checked">
+        <lable for="out"> Out </label>
+        <input type="radio" name="player-add-status" value="out">
+      </div>
+       <br> <br>
     </div>
-      <button id="add-finish"> Finished </button>
+      <button id="add-finish" class="box-finish"> Finished </button>
+      <button id="add-cancel"> Cancel </button>
   </div>
 </div>
 
 <!-- Removing Players -->
 
-<div id="removePlayer">
+<div id="removePlayer" class="transition-box">
   <div class="player-form">
     <div class=player-box>
       <label>Remove Player</label> <br>
       <input type="text" name="remove" placeholder="Players Name"> <br> <br>
     </div>
   </div>
-  <button id="remove-finish"> Finished </button>
+  <button id="remove-finish" class="box-finish"> Finished </button>
+  <button id="remove-cancel"> Cancel </button>
 </div>
+
+<!-- manage Roaster Box -->
+<div class="container">
+  <div id="manageRoaster" >
+    <h3>Roaster Manage</h3>
+    <div class="player-form">
+      <div id="manage-roaster">
+        <div class="row">
+            <div class="col-md-4 in">
+              <h4> In</h4>
+            </div>
+            <div class="col-md-4 manageButtons">
+              <h4> Manage</h4>
+              <div>
+            </div>
+            </div>
+            <div class="col-md-4 manage-out">
+              <h4> Out</h4>
+            </div>
+        </div>
+        <button id="manage-finish" class="box-finish"> Finished </button>
+        <button id="manage-cancel"> Cancel </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- change player box -->
+<div id="change-box">
+  <h3>Change player</h3>
+  <div class="player-form">
+    <div id="change">
+      <select id='changePlayer' name='change-player'></select>
+    </div>
+  </div>
+
+</div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="./app.js"></script>
