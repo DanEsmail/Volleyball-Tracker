@@ -16,26 +16,37 @@
           <li class="nav-bar"><a href="#" id="add">Add Player</a></li>
           <li class="nav-bar"><a href="#" id="remove">Remove Player</a></li>
           <li class="nav-bar"><a href="#" id="manage">Manage Roaster</a></li>
+          <li class="nav-bar"><a href="#" id="setting">Settings</a></li>
+          <li class="nav-bar"><a href="#" id="edit">Edit Player</a></li>
       </ul>
     </div>
 
 
 <!-- Volleyball Court -->
-<div class="container">
+<div class="container-fluid">
   <div class="court">
+
     <div class="row">
-      <div class="col-md-3 right-side">
-        <div class="top-row zone"> <p class="player" id="spot3">spot4</p> </div>
-        <div class="bottom-row zone"> <p class="player" id="spot2">spot5</p> </div>
+      <div class="col-md-2">
+
       </div>
-      <div class="col-md-3 center-side">
-        <div class="top-row zone"> <p class="player" id="spot4">spot3</p> </div>
-        <div class="bottom-row zone"> <p class="player" id="spot1">spot6</p> </div>
+      <div class="inside-court col-md-7">
+        <div id="ten-line"></div>
+        <div class="row">
+      <div class="col-xs-4 right-side">
+        <div class="top-row zone"> <p class="player front-left" id="spot3">spot3</p> </div>
+        <div class="bottom-row zone"> <p class="player back-left" id="spot2">spot2</p> </div>
       </div>
-      <div class="col-md-3 left-side">
-        <div class="top-row zone">  <p class="player" id="spot5">spot2</p> </div>
-        <div class="bottom-row zone"> <p class="player" id="spot6">spot1</p> </div>
+      <div class="col-xs-4 center-side">
+        <div class="top-row zone"> <p class="player front-middle" id="spot4">spot4</p> </div>
+        <div class="bottom-row zone"> <p class="player back-middle" id="spot1">spot1</p> </div>
       </div>
+      <div class="col-xs-4 left-side">
+        <div class="top-row zone">  <p class="player front-right" id="spot5">spot5</p> </div>
+        <div class="bottom-row zone"> <p class="player back-right" id="spot6">spot6</p> </div>
+      </div>
+    </div>
+    </div>
       <div class="col-md-3">
         <div class="out">
           <ol reversed>
@@ -44,8 +55,8 @@
             <li id="spot9">out 2</li>
             <li id="spot10">out 1</li>
           </ol>
-          <button id="reverse" class="something"> Reverse one </button>
-          <button id="forward"> Forward one </button>
+          <button id="reverse" class="btn something"> Reverse one </button>
+          <button id="forward" class="btn"> Forward one </button>
           <select id="amount" name="amountPlayers">
             <option value="6">Six</option>
             <option value="7">Seven</option>
@@ -244,15 +255,15 @@
     <div class="player-form">
       <div id="manage-roaster">
         <div class="row">
-            <div class="col-md-4 in">
+            <div class="col-xs-4 in">
               <h4> In</h4>
             </div>
-            <div class="col-md-4 manageButtons">
+            <div class="col-xs-4 manageButtons">
               <h4> Manage</h4>
               <div>
             </div>
             </div>
-            <div class="col-md-4 manage-out">
+            <div class="col-xs-4 manage-out">
               <h4> Out</h4>
             </div>
         </div>
@@ -271,6 +282,42 @@
     </div>
   </div>
 
+</div>
+
+<!-- Settings -->
+<div class="container">
+  <div id="Settings-box" class="transition-box">
+    <div class="player-form">
+    <h3>Settings</h3>
+      <div class="row">
+        <div class="col-xs-4">
+          <p>Rotate by gender</p>
+          <br>
+          <p>Roation spot</p>
+        </div>
+        <div class="col-xs-8">
+          <div class="radio-box">
+            <label for="off">no</label>
+            <input type="radio" name="gender-matter" value="off" checked="checked">
+            <label for="on">yes</label>
+            <input type="radio" name="gender-matter" value="on">
+          </div>
+        <br>
+          <div class="radio-box">
+            <label for="front-row">To Front</label>
+            <input type="radio" name="rotation" value="front">
+            <label for="back-row">To Back</label>
+            <input type="radio" name="rotation" value="back">
+            <label for="after-serve">After Serve</label>
+            <input type="radio" name="rotation" value="serve" checked="checked">
+          </div>
+        </div>
+      </div>
+      <br>
+      <button id="settings-finish" class="box-finish">Finish</button>
+      <button id="settings-cancel">Cancel</button>
+    </div>
+  </div>
 </div>
 
 

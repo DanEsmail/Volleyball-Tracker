@@ -1,9 +1,18 @@
+$courtColor: #e72d2e;
+$navColor: #E7812D;
+$courtGreen: #24B924;
+$backgroundBlue: #005C5C;
+
 
 h1{
-  color:black;
+  color:white;
   text-align: center;
 }
 
+
+body{
+  background-color: $backgroundBlue;
+}
 /* Nav Bar */
 
 #nav{
@@ -13,7 +22,7 @@ h1{
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #FA9C4C;
+    background-color: #E7812D;
     .nav-bar{
       display: inline-block;
       a{
@@ -24,7 +33,7 @@ h1{
         text-decoration: none;
       }
       a:hover{
-        background-color: blue;
+        background-color: #1B8B8B;
         color: white;
       }
     }
@@ -34,12 +43,27 @@ h1{
 
 
 /* Making the court*/
-.container{
+.container-fluid{
   margin-top: 50px;
+  .inside-court{
+    border: solid;
+    background-color: $courtColor;
+    border-color: white;
+    #ten-line{
+      width: 100%;
+      border-top: solid;
+      position: absolute;
+      z-index: 1;
+      border-color: white;
+      top: 105px;
+      left: 0px;
+    }
+
+  }
   .court{
+
     .zone{
-      color: green;
-      border: solid;
+      color: white;
       height: 100px;
       text-align: center;
       .player{
@@ -55,24 +79,26 @@ h1{
     }
 
     .out{
-      color: blue;
+      color: black;
       border: dotted;
       height: auto;
+      background-color: $navColor;
       li{
         color:blue;
       }
       button{
         margin-top: 20px;
+        margin-left: 5%;
       }
       select{
         margin-top: 10px;
+        margin-left: 35%;
       }
     }
   }
 }
 
 /* Common Tranistion Class */
-
 .transition-box{
   margin-left: 35%;
   margin-top: 50px;
@@ -106,7 +132,7 @@ h1{
 
 #teamBox{
   top: 75px;
-  background-color:green;
+  background-color: $courtGreen;
   h3{
     text-align: center;
   }
@@ -123,13 +149,13 @@ h1{
 /* Add Player Box */
 
 #addPlayers{
-  background-color:green;
+  background-color: $courtGreen;
 }
 
 /* Remove Player Box*/
 
 #removePlayer{
-  background-color:blue;
+  background-color: #1B8B8B;
 }
 
 /* ManageRoaster */
@@ -150,6 +176,7 @@ h1{
   opacity: 0;
   visibility: hidden;
   transition: opacity .25s, visibility .25s;
+  background-color: $courtGreen;
   button{
     margin-bottom: 3px;
   }
@@ -165,7 +192,7 @@ h1{
   border: solid;
   width: 400px;
   height: auto;
-  background-color: green;
+  background-color: $courtGreen;
   position: fixed;
   z-index: 1;
   opacity: 0;
@@ -178,4 +205,14 @@ h1{
   h3{
     text-align: center;
   }
+}
+
+/* settings */
+
+#Settings-box{
+  border: solid;
+  width: 600px;
+  height: auto;
+  background-color: $courtGreen;
+
 }

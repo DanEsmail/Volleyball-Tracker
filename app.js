@@ -1,34 +1,43 @@
-var poistion = 1;
+// version 0.6.3
+
 var amount = 6;
 
 var testTeam ={
   "player1":{
     "name": "Dan",
-    "status": "in"
+    "status": "in",
+    "gender": "male"
   },
   "player2":{
     "name": "Kevin",
-    "status": "in"
+    "status": "in",
+    "gender": "male"
   },
   "player3":{
     "name": "Chris",
-    "status": "out"
+    "status": "in",
+    "gender": "male"
   },
   "player4":{
     "name": "Joe",
-    "status": "in"
+    "status": "in",
+    "gender": "male"
   },
   "player5":{
-    "name": "Neil",
-    "status": "in"
+    "name": "Dar",
+    "status": "in",
+    "gender": "female"
   },
+
   "player6":{
     "name": "Kim",
-    "status": "in"
+    "status": "in",
+    "gender": "female"
   },
   "player7":{
-    "name": "Dar",
-    "status": "in"
+    "name": "Neil",
+    "status": "in",
+    "gender": "male"
   },
 
 }
@@ -45,8 +54,171 @@ var exampleTeam = {
   "player7": "Dar"
 }
 
-//Fixed for 0.1.5
+//Fixed for 0.6.3
+function changeRoation(value){
+  console.log(value)
+  for(var i = 0; i < 6; i++){
+    $("#spot" + (i+1)).removeAttr("id")
+    console.log($("#spot" + (i+1)).attr("id"))
+  }
+  switch (value) {
+    case "front":
+        $(".front-left").attr("id", "spot1")
+        $(".front-middle").attr("id", "spot2")
+        $(".front-right").attr("id", "spot3")
+        $(".back-right").attr("id", "spot4")
+        $(".back-middle").attr("id", "spot5")
+        $(".back-left").attr("id", "spot6")
+      break;
+    case "back":
+      $(".front-left").attr("id", "spot4")
+      $(".front-middle").attr("id", "spot5")
+      $(".front-right").attr("id", "spot6")
+      $(".back-right").attr("id", "spot1")
+      $(".back-middle").attr("id", "spot2")
+      $(".back-left").attr("id", "spot3")
+      break;
+    case "serve":
+      $(".front-left").attr("id", "spot3")
+      $(".front-middle").attr("id", "spot4")
+      $(".front-right").attr("id", "spot5")
+      $(".back-right").attr("id", "spot6")
+      $(".back-middle").attr("id", "spot1")
+      $(".back-left").attr("id", "spot2")
+      break;
+  }
+}
 
+function lookUpPlayer(name, obj){
+
+  for(var keys in obj){
+    if(obj[keys]["name"].trim().toLowerCase() == name.trim().toLowerCase()){
+      return keys
+    }
+  }
+}
+
+function foward(num, obj, genderState){
+  var arr = []
+  console.log(genderState)
+   if(num > 6){
+      if (genderState === "on"){
+        var playerKey = lookUpPlayer($("#spot6").html(), testTeam)
+        for(var i = 0; i < (num-6); i++){
+          var outKey = lookUpPlayer($("#spot" + (i+7)).html(), testTeam)
+          if(obj[playerKey]["gender"] == obj[outKey]["gender"]){
+            console.log("found a match")
+            var playerName = obj[playerKey]["name"]
+            var outName = obj[outKey]["name"]
+            for(var j = 1; j < 6; j++){
+              arr.push($("#spot" + j).html())
+            }
+            for(var j = 0; j < arr.length; j++){
+              $("#spot" + (j+2)).html(arr[j])
+            }
+            $("#spot" + (i+7)).html(playerName)
+            $("#spot1").html(outName)
+            return;
+          }else{
+            console.log("not a match")
+            }
+          }
+          for(var j = 1; j < 7; j++){
+            arr.push($("#spot" + j).html())
+          }
+          for(var j = 0; j< arr.length; j++){
+            if(j+1 === 6){
+              $("#spot1").html(arr[j])
+            }else{
+              $("#spot" + (j + 2)).html(arr[j])
+            }
+
+        }
+      }else{
+        loopFoward(amount)
+      }
+    }else{
+      loopFoward(amount)
+      }
+    }
+
+function reverse(num, obj, genderState){
+  arr = []
+  if(num > 6){
+    if(genderState === "on"){
+      var playerKey = lookUpPlayer($("#spot1").html(), testTeam);
+      for(var i = num; i > 6; i--){
+        console.log(i)
+        var outKey = lookUpPlayer($("#spot" + i).html(), testTeam)
+        console.log(obj[playerKey])
+        console.log(obj[outKey])
+        if(obj[playerKey]["gender"] == obj[outKey]["gender"]){
+          console.log("found a match")
+          var playerName = obj[playerKey]["name"]
+          var outName = obj[outKey]["name"]
+          for(var j = 2; j < 7; j++){
+            arr.push($("#spot" + j).html())
+          }
+          for(var j = 0; j < arr.length; j++){
+            $("#spot" + (j+1)).html(arr[j])
+          }
+          $("#spot" + (i)).html(playerName)
+          $("#spot6").html(outName)
+          return;
+        }else{
+          console.log("not a match")
+          }
+        }
+        for(var j = 1; j < 7; j++){
+          arr.push($("#spot" + j).html())
+        }
+        for(var j = 0; j< arr.length; j++){
+          if(j === 0){
+            $("#spot6").html(arr[j])
+          }else{
+            $("#spot" + j).html(arr[j])
+          }
+        }
+      }else{
+        loopReverse(amount)
+      }
+    }else{
+      loopReverse(amount)
+    }
+  }
+
+
+function loopReverse(courtNum){
+  var arr =[]
+  for( var i = 0; i<courtNum ; i++){
+    arr.push($("#spot"+(i+1)).html())
+  }
+  for( var i = 0; i<courtNum ; i++){
+    if((i) == 0){
+      $("#spot" + courtNum).html(arr[i])
+    }
+      $("#spot" + (i)).html(arr[i])
+  }
+  console.log(arr)
+}
+
+function loopFoward(courtNum){
+      var arr =[]
+
+      for( var i = 0; i<courtNum ; i++){
+        arr.push($("#spot"+(i+1)).html())
+      }
+      for( var i = 0; i<courtNum ; i++){
+        if((i+1) == courtNum){
+          $("#spot1").html(arr[i])
+        }
+          $("#spot" + (i+2)).html(arr[i])
+
+    }
+  }
+//Works as of 0.6.3
+
+//Needs to be looked at and changed 0.6.3
 
 function ManageSetUp(obj){
   for(var keys in obj){
@@ -96,8 +268,16 @@ function mangeSwitch(name, status, obj){
 }
 
 function boxPosition(obj){
-  var top = obj["top"] - 29;
-  var left = obj["left"] + 220;
+  var top;
+  var left;
+  if($(window).width() > 600){
+    top = obj["top"] - 29;
+    left = obj["left"] + 220;
+  }else{
+    top = 25;
+    left = 25;
+  }
+
 
   $("#change-box").css({
     "top": top ,
@@ -110,7 +290,7 @@ function boxPosition(obj){
 function selectPlayer(obj){
     $("#changePlayer").append("<option class='player-option'></option>")
   for(var keys in obj){
-    $("#changePlayer").append("<option class='player-option' value="+ obj[keys] + ">" + obj[keys] + "</option>")
+    $("#changePlayer").append("<option class='player-option' value="+ obj[keys]["name"] + ">" + obj[keys]["name"] + "</option>")
   }
 }
 
@@ -156,35 +336,9 @@ function addPlayer(obj){
 
 }
 
-//Works as of 0.1.5
-function LoopFoward(courtNum){
-  var num = poistion
-  var arr =[]
-  for( var i = 0; i<courtNum ; i++){
-    arr.push($("#spot"+(i+1)).html())
-  }
-  for( var i = 0; i<courtNum ; i++){
-    if((i+1) == courtNum){
-      $("#spot1").html(arr[i])
-    }
-      $("#spot" + (i+2)).html(arr[i])
-  }
-  console.log(arr)
-}
 
-function loopReverse(courtNum){
-  var arr =[]
-  for( var i = 0; i<courtNum ; i++){
-    arr.push($("#spot"+(i+1)).html())
-  }
-  for( var i = 0; i<courtNum ; i++){
-    if((i) == 0){
-      $("#spot" + courtNum).html(arr[i])
-    }
-      $("#spot" + (i)).html(arr[i])
-  }
-  console.log(arr)
-}
+
+
 
 function displayOut(num , tag){
   switch (num) {
@@ -231,8 +385,6 @@ function displayOut(num , tag){
   }
 }
 
-
-//Needs to be looked at and changed 0.1.5
 function playerReady(obj){
   var i = 1;
   if(Object.keys(obj).length > 0){
@@ -244,7 +396,8 @@ function playerReady(obj){
     }
   }
 }
-//Might need to be thrown out 0.1.5
+//Might need to be thrown out 0.6.3
+
 
 
 $(document).ready(function(){
@@ -252,16 +405,16 @@ $(document).ready(function(){
   // setting up the court
   amount = $("#amount").val()
   displayOut($("#amount").val(), "spot")
-  playerReady(team);
+  playerReady(testTeam);
 
   // controls player movement
   $("#reverse").click(function(){
     //reverse(team)
-    loopReverse(amount)
+    reverse(amount, testTeam, $("input[name=gender-matter]:checked").val())
   });
   $("#forward").click(function(){
     //forward(team)
-    LoopFoward(amount)
+    foward(amount, testTeam, $("input[name=gender-matter]:checked").val())
 
   });
 
@@ -321,17 +474,16 @@ $(document).ready(function(){
   })
 
   //changing players names by clicking
-  $(".player").on("click", function(){
-    $(this).html("working");
-    $(this).addClass("working");
-    boxPosition($(this).offset());
-    selectPlayer(exampleTeam);
+  $(".zone").on("click", function(){
+    $(this).children(".player").html("working");
+    $(this).children(".player").addClass("working");
+    boxPosition($(this).children(".player").offset());
+    selectPlayer(team);
     $("#changePlayer").on("change", function(){
       $(".working").html($("#changePlayer").val())
       $("#change-box").removeClass("active")
       $(".working").removeClass("working")
       $(".player-option").remove()
-
     })
   })
 
@@ -339,8 +491,6 @@ $(document).ready(function(){
   $("#manage").on("click", function(){
     $("#manageRoaster").addClass("active")
     ManageSetUp(team);
-
-
   })
   $(document).on("click", ".minus", function(){
       mangeSwitch($(this).attr("class"), "out", team)
@@ -356,6 +506,18 @@ $(document).ready(function(){
   $("#manage-cancel").on("click", function(){
     $("#manageRoaster").removeClass("active")
     $(".manageClass").remove()
+  })
+
+  //Settings
+  $("#setting").on("click", function(){
+    $("#Settings-box").addClass("active");
+  })
+  $("#settings-finish").on("click", function(){
+    $("#Settings-box").removeClass("active");
+    changeRoation($("input[name=rotation]:checked").val())
+  })
+  $("#settings-cancel").on("click", function(){
+    $("#Settings-box").removeClass("active");
   })
 
 })

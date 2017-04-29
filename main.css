@@ -1,6 +1,9 @@
 h1 {
-  color: black;
+  color: white;
   text-align: center; }
+
+body {
+  background-color: #005C5C; }
 
 /* Nav Bar */
 #nav {
@@ -10,7 +13,7 @@ h1 {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #FA9C4C; }
+    background-color: #E7812D; }
     #nav ul .nav-bar {
       display: inline-block; }
       #nav ul .nav-bar a {
@@ -20,33 +23,47 @@ h1 {
         padding: 14px 16px;
         text-decoration: none; }
       #nav ul .nav-bar a:hover {
-        background-color: blue;
+        background-color: #1B8B8B;
         color: white; }
 
 /* Making the court*/
-.container {
+.container-fluid {
   margin-top: 50px; }
-  .container .court .zone {
-    color: green;
+  .container-fluid .inside-court {
     border: solid;
+    background-color: #e72d2e;
+    border-color: white; }
+    .container-fluid .inside-court #ten-line {
+      width: 100%;
+      border-top: solid;
+      position: absolute;
+      z-index: 1;
+      border-color: white;
+      top: 105px;
+      left: 0px; }
+  .container-fluid .court .zone {
+    color: white;
     height: 100px;
     text-align: center; }
-    .container .court .zone .player {
+    .container-fluid .court .zone .player {
       margin-top: 30px; }
-    .container .court .zone .bottom-row {
+    .container-fluid .court .zone .bottom-row {
       margin-top: 50px; }
-  .container .court .bottom-row {
+  .container-fluid .court .bottom-row {
     margin-top: 10px; }
-  .container .court .out {
-    color: blue;
+  .container-fluid .court .out {
+    color: black;
     border: dotted;
-    height: auto; }
-    .container .court .out li {
+    height: auto;
+    background-color: #E7812D; }
+    .container-fluid .court .out li {
       color: blue; }
-    .container .court .out button {
-      margin-top: 20px; }
-    .container .court .out select {
-      margin-top: 10px; }
+    .container-fluid .court .out button {
+      margin-top: 20px;
+      margin-left: 5%; }
+    .container-fluid .court .out select {
+      margin-top: 10px;
+      margin-left: 35%; }
 
 /* Common Tranistion Class */
 .transition-box {
@@ -77,7 +94,7 @@ h1 {
 /* Team Box */
 #teamBox {
   top: 75px;
-  background-color: green; }
+  background-color: #24B924; }
   #teamBox h3 {
     text-align: center; }
   #teamBox .radio-box {
@@ -89,11 +106,11 @@ h1 {
 
 /* Add Player Box */
 #addPlayers {
-  background-color: green; }
+  background-color: #24B924; }
 
 /* Remove Player Box*/
 #removePlayer {
-  background-color: blue; }
+  background-color: #1B8B8B; }
 
 /* ManageRoaster */
 #manageRoaster {
@@ -110,7 +127,8 @@ h1 {
   z-index: 1;
   opacity: 0;
   visibility: hidden;
-  transition: opacity .25s, visibility .25s; }
+  transition: opacity .25s, visibility .25s;
+  background-color: #24B924; }
   #manageRoaster button {
     margin-bottom: 3px; }
   #manageRoaster.active {
@@ -122,7 +140,7 @@ h1 {
   border: solid;
   width: 400px;
   height: auto;
-  background-color: green;
+  background-color: #24B924;
   position: fixed;
   z-index: 1;
   opacity: 0;
@@ -133,3 +151,10 @@ h1 {
     visibility: visible; }
   #change-box h3 {
     text-align: center; }
+
+/* settings */
+#Settings-box {
+  border: solid;
+  width: 600px;
+  height: auto;
+  background-color: #24B924; }
