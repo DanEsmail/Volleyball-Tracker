@@ -1,0 +1,23 @@
+div(id='edit-player')
+  h3 Edit player
+  div(class='player-form')
+    select(id='edit-choose')
+    br
+    br
+    input(type='text', name='edit-player-name')
+    br
+    br
+    div(class='radio-display')
+      label(for='male', class='gender') Male
+      input(type='radio', name='player-edit-gender', class='gender', value='male')
+      label(for='female', class='gender') Female
+      input(type='radio', name='player-edit-gender', class='gender', value='female')
+    br
+    br
+    div(class='radio-display')
+      label(for='in') In
+      input(type='radio', name='player-edit-status', value='in')
+      label(for='out') out
+      input(type='radio', name='player-edit-status', value='out')
+    button(id='edit-finish', class='box-finish') Finish
+    button(id='edit-cancel') Cancel

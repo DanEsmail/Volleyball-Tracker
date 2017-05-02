@@ -1,0 +1,26 @@
+div(class='container')
+  div(id='Settings-box', class='transition-box')
+    div(class='player-form')
+      h3 Settings
+      div(class='row')
+        div(class='col-xs-4')
+          p Rotate by gender
+          br
+          p Roation spot
+        div(class='col-xs-8')
+          div(class='radio-display')
+            label(for='off') No
+            input(type='radio', name='gender-matter', value='off', checked='checked')
+            label(for='on') Yes
+            input(type='radio', name='gender-matter', value='on')
+          br
+          div(class='radio-display')
+            label(for='front') To front
+            input(type='radio', name='rotation', value='front')
+            label(for='back') To back
+            input(type='radio', name='rotation', value='back')
+            label(for='on') After Serve
+            input(type='radio', name='rotation', value='serve', checked='checked')
+          br
+      button(id='settings-finish', class='box-finish') Finish
+      button(id='settings-cancel') Cancel

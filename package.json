@@ -1,0 +1,25 @@
+{
+  "name": "volleyball_tracker",
+  "version": "0.7.0",
+  "description": "volleyball roation tracker",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanEsmail/Volleyball-Tracker.git"
+  },
+  "author": "Dan Esmail",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanEsmail/Volleyball-Tracker/issues"
+  },
+  "homepage": "https://github.com/DanEsmail/Volleyball-Tracker#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.7",
+    "pug": "^2.0.0-rc.1"
+  }
+}

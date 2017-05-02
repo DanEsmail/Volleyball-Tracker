@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title Volleyball Traker
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    style
+      include ../styles/main.css
+  body
+    h1(id='title') Volleyball Tracker
+    include ./volleyballNav.pug
+    include ./vb-court.pug
+    include ./vb-team-create.pug
+    include ./vb-add-player.pug
+    include ./vb-remove-player.pug
+    include ./vb-manage-roaster.pug
+    include ./vb-change-box.pug
+    include ./vb-settings.pug
+    include ./vb-edit-player
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script
+      include ../index.js

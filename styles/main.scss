@@ -1,0 +1,268 @@
+$courtColor: #e72d2e;
+$navColor: #E7812D;
+$courtGreen: #24B924;
+$backgroundBlue: #005C5C;
+
+
+h1{
+  color:white;
+  text-align: center;
+}
+
+
+body{
+  background-color: $backgroundBlue;
+}
+/* Nav Bar */
+
+#nav{
+  text-align: center;
+  ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #E7812D;
+    .nav-bar{
+      display: inline-block;
+      a{
+        display: inline-block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      a:hover{
+        background-color: #1B8B8B;
+        color: white;
+      }
+    }
+  }
+}
+
+
+
+/* Making the court*/
+.container-fluid{
+  margin-top: 50px;
+  .inside-court{
+    border: solid;
+    background-color: $courtColor;
+    border-color: white;
+    #ten-line{
+      width: 100%;
+      border-top: solid;
+      position: absolute;
+      z-index: 1;
+      border-color: white;
+      top: 105px;
+      left: 0px;
+    }
+
+  }
+  .court{
+
+    .zone{
+      color: white;
+      height: 100px;
+      text-align: center;
+      .player{
+        margin-top: 30px;
+      }
+      .bottom-row{
+        margin-top: 50px;
+      }
+    }
+
+    .bottom-row{
+      margin-top: 10px;
+    }
+
+    .out{
+      color: black;
+      border: dotted;
+      height: auto;
+      background-color: $navColor;
+      li{
+        color:black;
+      }
+      button{
+        margin-top: 20px;
+        margin-left: 5%;
+      }
+      select{
+        margin-top: 10px;
+        margin-left: 35%;
+      }
+    }
+  }
+}
+
+/* Common Tranistion Class */
+.transition-box{
+  margin-left: 35%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  border: solid;
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: auto;
+  z-index: 1;
+  position: absolute;
+  color: black;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s, visibility .5s;
+  &.active{
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.player-form{
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.box-finish{
+  margin-left: 30%;
+  margin-bottom: 10px;
+}
+
+.gender{
+  opacity: 0;
+  visibility: hidden;
+  &.active{
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Team Box */
+
+#teamBox{
+  top: 75px;
+  background-color: $courtGreen;
+  h3{
+    text-align: center;
+  }
+
+  .radio-box{
+    margin-left: 30px;
+    display:inline-block;
+    text-align: center;
+    label{
+      display: block;
+    }
+  }
+}
+
+.radio-display{
+  margin-left: 30px;
+  display:inline-block;
+  text-align: center;
+  label{
+    display:inline-block;
+  }
+}
+
+/* Add Player Box */
+
+#addPlayers{
+  background-color: $courtGreen;
+}
+
+/* Remove Player Box*/
+
+#removePlayer{
+  background-color: #1B8B8B;
+}
+
+/* ManageRoaster */
+
+#manageRoaster{
+
+  margin-left: 35%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  border: solid;
+  width: 400px;
+  height: auto;
+  z-index: 1;
+  position: absolute;
+  color: black;
+  text-align: center;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s, visibility .25s;
+  background-color: $courtGreen;
+  button{
+    margin-bottom: 3px;
+  }
+  &.active{
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Change player box */
+
+#change-box{
+  border: solid;
+  width: 400px;
+  height: auto;
+  background-color: $courtGreen;
+  position: fixed;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s, visibility .5s;
+  &.active{
+    opacity: 1;
+    visibility: visible;
+  }
+  h3{
+    text-align: center;
+  }
+}
+
+/* settings */
+
+#Settings-box{
+  border: solid;
+  width: 600px;
+  height: auto;
+  background-color: $courtGreen;
+
+}
+
+/* Edit player */
+#edit-player{
+  margin-left: 35%;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  border: solid;
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: auto;
+  z-index: 1;
+  position: absolute;
+  color: black;
+  background-color: $courtGreen;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s, visibility .5s;
+  &.active{
+    opacity: 1;
+    visibility: visible;
+  }
+  select{
+    display: block;
+  }
+
+}

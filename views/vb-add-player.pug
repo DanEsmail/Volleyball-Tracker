@@ -1,0 +1,20 @@
+div(id='addPlayers', class='transition-box')
+  div(class='player-form')
+    div(class='player-box')
+      label(for=add) Player
+      br
+      input(type='text', name='add', playerholder='Player Name')
+      div(class='radio-display')
+        label(for='in') In
+        input(type='radio', name='player-add-status', value='in', checked='checked')
+        label(for='out') Out
+        input(type='radio', name='player-add-status', value='out')
+      div(class='radio-display')
+        label(class='gender', for='in') Male
+        input(type='radio', name='player-add-gender', class='gender', value='male')
+        label(class='gender', for='out') Female
+        input(type='radio', name='player-add-gender', class='gender', value='female')
+      br
+      br
+    button(id='add-finish', class='box-finish') Finish
+    button(id='add-cancel') Cancel
