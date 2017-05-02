@@ -286,8 +286,6 @@ function cleanUpEdit(){
 
 //Works as of 0.6.4
 
-//Needs to be looked at and changed 0.6.4
-
 function ManageSetUp(obj){
   for(var keys in obj){
     if(obj[keys]["status"] == "in"){
@@ -386,10 +384,20 @@ function cleanUp(obj){
 }
 
 function addPlayer(obj){
-  obj["player" + (Object.keys(obj).length + 1)] = {
-    "name": $("input[name=add]").val(),
-    "status": $("input[name=player-add-status]:checked").val()
+  if($("input[name=gender-matter]:checked").val() == "on"){
+    console.log($("input[name=player-add-gender]:checked").val())
+    obj["player" + (Object.keys(obj).length + 1)] = {
+      "name": $("input[name=add]").val(),
+      "status": $("input[name=player-add-status]:checked").val(),
+      "gender": $("input[name=player-add-gender]:checked").val()
+    }
+  }else{
+    obj["player" + (Object.keys(obj).length + 1)] = {
+      "name": $("input[name=add]").val(),
+      "status": $("input[name=player-add-status]:checked").val()
+    }
   }
+
   console.log(team);
 
 }
@@ -450,6 +458,10 @@ function playerReady(obj){
     }
   }
 }
+
+//Needs to be looked at and changed 0.6.4
+
+
 //Might need to be thrown out 0.6.4
 
 $(document).ready(function(){
