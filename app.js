@@ -36,7 +36,7 @@ var testTeam ={
   },
   "player7":{
     "name": "Neil",
-    "status": "in",
+    "status": "out",
     "gender": "male"
   },
 
@@ -54,7 +54,7 @@ var exampleTeam = {
   "player7": "Dar"
 }
 
-//Fixed for 0.6.3
+//Fixed for 0.6.4
 function changeRoation(value){
   console.log(value)
   for(var i = 0; i < 6; i++){
@@ -103,9 +103,9 @@ function foward(num, obj, genderState){
   console.log(genderState)
    if(num > 6){
       if (genderState === "on"){
-        var playerKey = lookUpPlayer($("#spot6").html(), testTeam)
+        var playerKey = lookUpPlayer($("#spot6").html(), team)
         for(var i = 0; i < (num-6); i++){
-          var outKey = lookUpPlayer($("#spot" + (i+7)).html(), testTeam)
+          var outKey = lookUpPlayer($("#spot" + (i+7)).html(), team)
           if(obj[playerKey]["gender"] == obj[outKey]["gender"]){
             console.log("found a match")
             var playerName = obj[playerKey]["name"]
@@ -146,10 +146,10 @@ function reverse(num, obj, genderState){
   arr = []
   if(num > 6){
     if(genderState === "on"){
-      var playerKey = lookUpPlayer($("#spot1").html(), testTeam);
+      var playerKey = lookUpPlayer($("#spot1").html(), team);
       for(var i = num; i > 6; i--){
         console.log(i)
-        var outKey = lookUpPlayer($("#spot" + i).html(), testTeam)
+        var outKey = lookUpPlayer($("#spot" + i).html(), team)
         console.log(obj[playerKey])
         console.log(obj[outKey])
         if(obj[playerKey]["gender"] == obj[outKey]["gender"]){
@@ -187,7 +187,6 @@ function reverse(num, obj, genderState){
     }
   }
 
-
 function loopReverse(courtNum){
   var arr =[]
   for( var i = 0; i<courtNum ; i++){
@@ -216,9 +215,78 @@ function loopFoward(courtNum){
 
     }
   }
-//Works as of 0.6.3
 
-//Needs to be looked at and changed 0.6.3
+function teamCreate(val){
+    if($("input[name=gender-matter]:checked").val() == "on"){
+      console.log("here")
+      for(var i = 0; i<val; i++){
+        team["player" + (i+1)] = {
+          "name": $("input[name=player"+ (i+1) +"]").val(),
+          "status": $("input[name=player" + (i+1) + "-status]:checked").val(),
+          "gender": $("input[name=player" + (i+1) + "-gender]:checked").val()
+        }
+      }
+    }else{
+      for(var i = 0; i<val; i++){
+        team["player" + (i+1)] = {
+          "name": $("input[name=player"+ (i+1) +"]").val(),
+          "status": $("input[name=player" + (i+1) + "-status]:checked").val()
+        }
+      }
+    }
+
+    console.log(team)
+  }
+
+function editPlayer(obj){
+  for(var keys in obj){
+    $("#edit-choose").append("<option class='edit-list' id='" + obj[keys] + "' value='" + obj[keys]["name"] + "'> " + obj[keys]["name"] + " </option>")
+  }
+  edit(obj["player1"]["name"], testTeam)
+}
+
+function edit(name, obj){
+  var playerKey = lookUpPlayer(name, obj)
+  console.log(obj[playerKey])
+  $("input[name=edit-player-name]").val(obj[playerKey]["name"])
+  if(obj[playerKey]["status"] == "in"){
+    $("input[name=player-edit-status]input[value=in]").prop("checked", true)
+  }else{
+    $("input[name=player-edit-status]input[value=out]").prop("checked", true)
+  }
+  if($("input[name=gender-matter]:checked").val() == "on"){
+    if(obj[playerKey]["gender"] === "male"){
+      $("input[name=player-edit-gender]input[value=male]").prop("checked", true)
+    }else{
+      $("input[name=player-edit-gender]input[value=female]").prop("checked", true)
+    }
+  }
+}
+
+function editFinal(name, obj){
+  var playerKey = lookUpPlayer(name, obj)
+  obj[playerKey]["name"] = $("input[name=edit-player-name]").val()
+  obj[playerKey]["status"] = $("input[name=player-edit-status]:checked").val()
+  if($("input[name=gender-matter]:checked").val() == "on"){
+    obj[playerKey]["gender"] = $("input[name=player-edit-gender]:checked").val()
+  }
+  console.log(testTeam)
+  cleanUpEdit()
+}
+
+function cleanUpEdit(){
+
+  $("input[name=edit-player-name]").val("")
+  $("input[name=player-edit-status]input[value=in]").prop("checked", false)
+  $("input[name=player-edit-status]input[value=out]").prop("checked", false)
+  $("input[name=player-edit-gender]input[value=female]").prop("checked", false)
+  $("input[name=player-edit-gender]input[value=female]").prop("checked", false)
+
+}
+
+//Works as of 0.6.4
+
+//Needs to be looked at and changed 0.6.4
 
 function ManageSetUp(obj){
   for(var keys in obj){
@@ -294,16 +362,6 @@ function selectPlayer(obj){
   }
 }
 
-function teamCreate(val){
-  for(var i = 0; i<val; i++){
-    team["player" + (i+1)] = {
-      "name": $("input[name=player"+ (i+1) +"]").val(),
-      "status": $("input[name=player" + (i+1) + "-status]:checked").val()
-    }
-  }
-  console.log(team)
-}
-
 function removePlayer(obj,val){
   val = val.trim().toLowerCase()
 
@@ -335,10 +393,6 @@ function addPlayer(obj){
   console.log(team);
 
 }
-
-
-
-
 
 function displayOut(num , tag){
   switch (num) {
@@ -396,25 +450,23 @@ function playerReady(obj){
     }
   }
 }
-//Might need to be thrown out 0.6.3
-
-
+//Might need to be thrown out 0.6.4
 
 $(document).ready(function(){
 
   // setting up the court
   amount = $("#amount").val()
   displayOut($("#amount").val(), "spot")
-  playerReady(testTeam);
+  playerReady(team);
 
   // controls player movement
   $("#reverse").click(function(){
     //reverse(team)
-    reverse(amount, testTeam, $("input[name=gender-matter]:checked").val())
+    reverse(amount, team, $("input[name=gender-matter]:checked").val())
   });
   $("#forward").click(function(){
     //forward(team)
-    foward(amount, testTeam, $("input[name=gender-matter]:checked").val())
+    foward(amount, team, $("input[name=gender-matter]:checked").val())
 
   });
 
@@ -515,9 +567,37 @@ $(document).ready(function(){
   $("#settings-finish").on("click", function(){
     $("#Settings-box").removeClass("active");
     changeRoation($("input[name=rotation]:checked").val())
+    if($("input[name=gender-matter]:checked").val() == "on"){
+      $(".gender").addClass("active");
+    }else{
+      $(".gender").removeClass("active")
+    }
   })
   $("#settings-cancel").on("click", function(){
     $("#Settings-box").removeClass("active");
   })
+
+  //Edit player
+  $("#edit").on("click", function(){
+    $("#edit-player").addClass("active");
+    editPlayer(testTeam)
+
+  })
+  $("#edit-choose").on("change", function(){
+    edit($("#edit-choose").val(), testTeam)
+  })
+  $("#edit-finish").on("click", function(){
+    editFinal($("#edit-choose").val(), testTeam);
+    $("#edit-player").removeClass("active");
+    $(".edit-list").remove();
+  })
+  $("#edit-cancel").on("click", function(){
+    $("#edit-player").removeClass("active")
+    $(".edit-list").remove()
+  })
+
+$("input[type=radio]").on("click", function(){
+  console.log(this)
+})
 
 })

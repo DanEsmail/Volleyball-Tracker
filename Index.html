@@ -16,8 +16,9 @@
           <li class="nav-bar"><a href="#" id="add">Add Player</a></li>
           <li class="nav-bar"><a href="#" id="remove">Remove Player</a></li>
           <li class="nav-bar"><a href="#" id="manage">Manage Roaster</a></li>
-          <li class="nav-bar"><a href="#" id="setting">Settings</a></li>
           <li class="nav-bar"><a href="#" id="edit">Edit Player</a></li>
+          <li class="nav-bar"><a href="#" id="setting">Settings</a></li>
+
       </ul>
     </div>
 
@@ -71,143 +72,206 @@
 </div>
 
 <!-- Creating Team Box -->
-
-<div id="teamBox" class="transition-box">
-  <h3>Create Team</h3>
-  <div id="teamCreate">
-    <!-- Radio Buttons -->
-    <div class="radio-box">
-      <label for="6">Six</label>
-      <input type="radio" name="playerNumber" value="6" checked="checked">
-    </div>
-    <div class="radio-box">
-      <label for="7">Seven</label>
-      <input type="radio" name="playerNumber" value="7">
-    </div>
-    <div class="radio-box">
-      <label for="8">Eight</label>
-      <input type="radio" name="playerNumber" value="8">
-    </div>
-    <div class="radio-box">
-      <label for="9">Nine</label>
-      <input type="radio" name="playerNumber" value="9">
-    </div>
-    <div class="radio-box">
-      <label for="10">Ten</label>
-      <input type="radio" name="playerNumber" value="10">
-    </div>
-    <!-- Players -->
-    <div class="player-form" id="box1">
-      <div class="player-box">
-        <label>Player 1</label> <br>
-        <input type="text" name="player1" placeholder="Players Name">
-        <div class="radio-box">
-          <lable for="in"> In </label>
-          <input type="radio" name="player1-status" value="in" checked="checked">
-          <lable for="out"> Out </label>
-          <input type="radio" name="player1-status" value="out">
-        </div>
-         <br> <br>
+<div class="container-fluid">
+  <div id="teamBox" class="transition-box">
+    <h3>Create Team</h3>
+    <div id="teamCreate">
+      <!-- Radio Buttons -->
+      <div class="radio-box">
+        <label for="6">Six</label>
+        <input type="radio" name="playerNumber" value="6" checked="checked">
       </div>
-      <div class="player-box" id="box2">
-        <label>Player 2</label> <br>
-        <input type="text" name="player2" placeholder="Players Name">
-        <div class="radio-box">
-          <lable for="in"> In </label>
-          <input type="radio" name="player2-status" value="in" checked="checked">
-          <lable for="out"> Out </label>
-          <input type="radio" name="player2-status" value="out">
-        </div>
-         <br> <br>
+      <div class="radio-box">
+        <label for="7">Seven</label>
+        <input type="radio" name="playerNumber" value="7">
       </div>
-      <div class="player-box" id="box3">
-        <label>Player 3</label> <br>
-        <input type="text" name="player3" placeholder="Players Name">
-        <div class="radio-box">
-          <lable for="in"> In </label>
-          <input type="radio" name="player3-status" value="in" checked="checked">
-          <lable for="out"> Out </label>
-          <input type="radio" name="player3-status" value="out">
-        </div>
-        <br> <br>
+      <div class="radio-box">
+        <label for="8">Eight</label>
+        <input type="radio" name="playerNumber" value="8">
       </div>
-      <div class="player-box" id="box4">
-        <label>Player 4</label> <br>
-        <input type="text" name="player4" placeholder="Players Name">
-        <div class="radio-box">
-          <lable for="in"> In </label>
-          <input type="radio" name="player4-status" value="in" checked="checked">
-          <lable for="out"> Out </label>
-          <input type="radio" name="player4-status" value="out">
-        </div>
-         <br> <br>
+      <div class="radio-box">
+        <label for="9">Nine</label>
+        <input type="radio" name="playerNumber" value="9">
       </div>
-      <div class="player-box" id="box5">
-        <label>Player 5</label> <br>
-        <input type="text" name="player5" placeholder="Players Name">
-        <div class="radio-box">
-          <lable for="in"> In </label>
-          <input type="radio" name="player5-status" value="in" checked="checked">
-          <lable for="out"> Out </label>
-          <input type="radio" name="player5-status" value="out">
-        </div>
-         <br> <br>
+      <div class="radio-box">
+        <label for="10">Ten</label>
+        <input type="radio" name="playerNumber" value="10">
       </div>
-      <div class="player-box" id="box6">
-        <label>Player 6</label> <br>
-        <input type="text" name="player6" placeholder="Players Name">
-        <div class="radio-box">
-          <lable for="in"> In </label>
-          <input type="radio" name="player6-status" value="in" checked="checked">
-          <lable for="out"> Out </label>
-          <input type="radio" name="player6-status" value="out">
+      <!-- Players -->
+      <div class="player-form" id="box1">
+        <div class="row">
+          <div class="player-box">
+            <label>Player 1</label> <br>
+            <input type="text" name="player1" placeholder="Players Name">
+            <div class="radio-display">
+              <label for="in"> In </label>
+              <input type="radio" name="player1-status" value="in" checked="checked">
+              <label for="out"> Out </label>
+              <input type="radio" name="player1-status" value="out">
+            </div>
+            <div class="radio-display">
+              <label for="male" class="gender"> Male </label>
+              <input type="radio" name="player1-gender" class="gender" value="male" checked="checked">
+              <label for="female" class="gender"> Female </label>
+              <input type="radio" name="player1-gender" class="gender" value="female">
+            </div>
+             <br> <br>
+          </div>
+          <div class="player-box" id="box2">
+            <label>Player 2</label> <br>
+            <input type="text" name="player2" placeholder="Players Name">
+            <div class="radio-display">
+              <label for="in"> In </label>
+              <input type="radio" name="player2-status" value="in" checked="checked">
+              <label for="out"> Out </label>
+              <input type="radio" name="player2-status" value="out">
+            </div>
+            <div class="radio-display">
+              <label for="male" class="gender"> Male </label>
+              <input type="radio" name="player2-gender" class="gender" value="male" checked="checked">
+              <label for="female" class="gender"> Female </label>
+              <input type="radio" name="player2-gender" class="gender" value="female">
+            </div>
+             <br> <br>
+          </div>
+          <div class="player-box" id="box3">
+            <label>Player 3</label> <br>
+            <input type="text" name="player3" placeholder="Players Name">
+            <div class="radio-display">
+              <label for="in"> In </label>
+              <input type="radio" name="player3-status" value="in" checked="checked">
+              <label for="out"> Out </label>
+              <input type="radio" name="player3-status" value="out">
+            </div>
+            <div class="radio-display">
+              <label for="male" class="gender"> Male </label>
+              <input type="radio" name="player3-gender" class="gender" value="male" checked="checked">
+              <label for="female" class="gender"> Female </label>
+              <input type="radio" name="player3-gender" class="gender" value="female">
+            </div>
+            <br> <br>
+          </div>
+          <div class="player-box" id="box4">
+            <label>Player 4</label> <br>
+            <input type="text" name="player4" placeholder="Players Name">
+            <div class="radio-display">
+              <label for="in"> In </label>
+              <input type="radio" name="player4-status" value="in" checked="checked">
+              <label for="out"> Out </label>
+              <input type="radio" name="player4-status" value="out">
+            </div>
+            <div class="radio-display">
+              <label for="male" class="gender"> Male </label>
+              <input type="radio" name="player4-gender" class="gender" value="male" checked="checked">
+              <label for="female" class="gender"> Female </label>
+              <input type="radio" name="player4-gender" class="gender" value="female">
+            </div>
+             <br> <br>
+          </div>
+          <div class="player-box" id="box5">
+            <label>Player 5</label> <br>
+            <input type="text" name="player5" placeholder="Players Name">
+            <div class="radio-display">
+              <label for="in"> In </label>
+              <input type="radio" name="player5-status" value="in" checked="checked">
+              <label for="out"> Out </label>
+              <input type="radio" name="player5-status" value="out">
+            </div>
+            <div class="radio-display">
+              <label for="male" class="gender"> Male </label>
+              <input type="radio" name="player5-gender" class="gender" value="male" checked="checked">
+              <label for="female" class="gender"> Female </label>
+              <input type="radio" name="player5-gender" class="gender" value="female">
+            </div>
+             <br> <br>
+          </div>
+          <div class="player-box" id="box6">
+            <label>Player 6</label> <br>
+            <input type="text" name="player6" placeholder="Players Name">
+            <div class="radio-display">
+              <label for="in"> In </label>
+              <input type="radio" name="player6-status" value="in" checked="checked">
+              <label for="out"> Out </label>
+              <input type="radio" name="player6-status" value="out">
+            </div>
+            <div class="radio-display">
+              <label for="male" class="gender"> Male </label>
+              <input type="radio" name="player6-gender" class="gender" value="male" checked="checked">
+              <label for="female" class="gender"> Female </label>
+              <input type="radio" name="player6-gender" class="gender" value="female">
+            </div>
+             <br> <br>
+          </div>
+          <div class="player-box" id="box7">
+            <label>Player 7</label> <br>
+            <input type="text" name="player7" placeholder="Players Name">
+            <div class="radio-display">
+              <label for="in"> In </label>
+              <input type="radio" name="player7-status" value="in" checked="checked">
+              <label for="out"> Out </label>
+              <input type="radio" name="player7-status" value="out">
+            </div>
+            <div class="radio-display">
+              <label for="male" class="gender"> Male </label>
+              <input type="radio" name="player7-gender" class="gender" value="male" checked="checked">
+              <label for="female" class="gender"> Female </label>
+              <input type="radio" name="player7-gender" class="gender" value="female">
+            </div>
+             <br> <br>
+          </div>
+          <div class="player-box" id="box8">
+            <label>Player 8</label> <br>
+            <input type="text" name="player8" placeholder="Players Name">
+            <div class="radio-display">
+              <label for="in"> In </label>
+              <input type="radio" name="player8-status" value="in" checked="checked">
+              <label for="out"> Out </label>
+              <input type="radio" name="player8-status" value="out">
+            </div>
+            <div class="radio-display">
+              <label for="male" class="gender"> Male </label>
+              <input type="radio" name="player8-gender" class="gender" value="male" checked="checked">
+              <label for="female" class="gender"> Female </label>
+              <input type="radio" name="player8-gender" class="gender" value="female">
+            </div>
+             <br> <br>
+          </div>
+          <div class="player-box" id="box9">
+            <label>Player 9</label> <br>
+            <input type="text" name="player9" placeholder="Players Name">
+            <div class="radio-display">
+              <label for="in"> In </label>
+              <input type="radio" name="player9-status" value="in" checked="checked">
+              <label for="out"> Out </label>
+              <input type="radio" name="player9-status" value="out">
+            </div>
+            <div class="radio-display">
+              <label for="male" class="gender"> Male </label>
+              <input type="radio" name="player9-gender" class="gender" value="male" checked="checked">
+              <label for="female" class="gender"> Female </label>
+              <input type="radio" name="player9-gender" class="gender" value="female">
+            </div>
+             <br> <br>
+          </div>
+          <div class="player-box" id="box10">
+            <label>Player 10</label> <br>
+            <input type="text" name="player10" placeholder="Players Name">
+            <div class="radio-display">
+              <label for="in"> In </label>
+              <input type="radio" name="player10-status" value="in" checked="checked">
+              <label for="out"> Out </label>
+              <input type="radio" name="player10-status" value="out">
+            </div>
+            <div class="radio-display">
+              <label for="male" class="gender"> Male </label>
+              <input type="radio" name="player10-gender" class="gender" value="male" checked="checked">
+              <label for="female" class="gender"> Female </label>
+              <input type="radio" name="player10-gender" class="gender" value="female">
+            </div>
+            <br> <br>
+          </div>
         </div>
-         <br> <br>
-      </div>
-      <div class="player-box" id="box7">
-        <label>Player 7</label> <br>
-        <input type="text" name="player7" placeholder="Players Name">
-        <div class="radio-box">
-          <lable for="in"> In </label>
-          <input type="radio" name="player7-status" value="in" checked="checked">
-          <lable for="out"> Out </label>
-          <input type="radio" name="player7-status" value="out">
         </div>
-         <br> <br>
-      </div>
-      <div class="player-box" id="box8">
-        <label>Player 8</label> <br>
-        <input type="text" name="player8" placeholder="Players Name">
-        <div class="radio-box">
-          <lable for="in"> In </label>
-          <input type="radio" name="player8-status" value="in" checked="checked">
-          <lable for="out"> Out </label>
-          <input type="radio" name="player8-status" value="out">
-        </div>
-         <br> <br>
-      </div>
-      <div class="player-box" id="box9">
-        <label>Player 9</label> <br>
-        <input type="text" name="player9" placeholder="Players Name">
-        <div class="radio-box">
-          <lable for="in"> In </label>
-          <input type="radio" name="player9-status" value="in" checked="checked">
-          <lable for="out"> Out </label>
-          <input type="radio" name="player9-status" value="out">
-        </div>
-         <br> <br>
-      </div>
-      <div class="player-box" id="box10">
-        <label>Player 10</label> <br>
-        <input type="text" name="player10" placeholder="Players Name">
-        <div class="radio-box">
-          <lable for="in"> In </label>
-          <input type="radio" name="player10-status" value="in" checked="checked">
-          <lable for="out"> Out </label>
-          <input type="radio" name="player10-status" value="out">
-        </div>
-        <br> <br>
-      </div>
     </div>
     <!-- Player box End -->
     <button id="create-finish" class="box-finish"> Finished </button>
@@ -222,10 +286,10 @@
     <div class="player-box">
       <label>New Player</label> <br>
       <input type="text" name="add" placeholder="Players Name">
-      <div class="radio-box">
-        <lable for="in"> In </label>
+      <div class="radio-display">
+        <label for="in"> In </label>
         <input type="radio" name="player-add-status" value="in" checked="checked">
-        <lable for="out"> Out </label>
+        <label for="out"> Out </label>
         <input type="radio" name="player-add-status" value="out">
       </div>
        <br> <br>
@@ -273,6 +337,7 @@
     </div>
   </div>
 </div>
+
 <!-- change player box -->
 <div id="change-box">
   <h3>Change player</h3>
@@ -296,14 +361,14 @@
           <p>Roation spot</p>
         </div>
         <div class="col-xs-8">
-          <div class="radio-box">
+          <div class="radio-display">
             <label for="off">no</label>
             <input type="radio" name="gender-matter" value="off" checked="checked">
             <label for="on">yes</label>
             <input type="radio" name="gender-matter" value="on">
           </div>
         <br>
-          <div class="radio-box">
+          <div class="radio-display">
             <label for="front-row">To Front</label>
             <input type="radio" name="rotation" value="front">
             <label for="back-row">To Back</label>
@@ -317,6 +382,38 @@
       <button id="settings-finish" class="box-finish">Finish</button>
       <button id="settings-cancel">Cancel</button>
     </div>
+  </div>
+</div>
+
+<!-- Edit Player -->
+<div id="edit-player">
+  <h3>Edit player</h3>
+  <div class="player-form">
+
+    <select id="edit-choose"></select>
+    <br>
+    <br>
+    <input type="text" name="edit-player-name">
+    <br>
+    <br>
+    <div class="radio-display">
+        <label for="male" class="gender">male</label>
+        <input type="radio" name="player-edit-gender" class="gender" value="male" >
+        <label for="female" class="gender">female</label>
+        <input type="radio" name="player-edit-gender" class="gender" value="female">
+      </div>
+      <br>
+      <br>
+      <div class="radio-display">
+        <label for="in"> In </label>
+        <input type="radio" name="player-edit-status" value="in" >
+        <label for="out"> Out </label>
+        <input type="radio" name="player-edit-status" value="out">
+      </div>
+      <br>
+      <br>
+      <button id="edit-finish" class="box-finish">Finish</button>
+      <button id="edit-cancel">Cancel</button>
   </div>
 </div>
 
