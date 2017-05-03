@@ -19,31 +19,38 @@ mixin radio(playerNum, num)
 div(class="container-fluid")
   div(id='teamBox', class='transition-box')
     h3 Create Team
-    div(class="radio-box")
-      label(for='6') Six
-      input(type='radio', name='playerNumber', value='6', checked='checked')
-    div(class="radio-box")
-      label(for='7') Seven
-      input(type='radio', name='playerNumber', value='7')
-    div(class="radio-box")
-      label(for='8') Eight
-      input(type='radio', name='playerNumber', value='8')
-    div(class="radio-box")
-      label(for='9') Nine
-      input(type='radio', name='playerNumber', value='9')
-    div(class="radio-box")
-      label(for='10') Ten
-      input(type='radio', name='playerNumber', value='10')
-    div(class='player-form', id='box1')
-      +radio('player1', 1)
-      +radio('player2', 2)
-      +radio('player3', 3)
-      +radio('player4', 4)
-      +radio('player5', 5)
-      +radio('player6', 6)
-      +radio('player7', 7)
-      +radio('player8', 8)
-      +radio('player9', 9)
-      +radio('player10', 10)
-    button( id='create-finish', class='box-finish') Finish
-    button(id='create-cancel') Cancel
+    form(action='/team', method='POST')
+      label('for=team-name') Team name
+      br
+      input(type="text", name='team-name', placehoder='Team Name')
+      br
+      br
+      div(class="radio-box")
+        label(for='6') Six
+        input(type='radio', name='playerNumber', value='6', checked='checked')
+      div(class="radio-box")
+        label(for='7') Seven
+        input(type='radio', name='playerNumber', value='7')
+      div(class="radio-box")
+        label(for='8') Eight
+        input(type='radio', name='playerNumber', value='8')
+      div(class="radio-box")
+        label(for='9') Nine
+        input(type='radio', name='playerNumber', value='9')
+      div(class="radio-box")
+        label(for='10') Ten
+        input(type='radio', name='playerNumber', value='10')
+      div(class='player-form', id='box1')
+        +radio('player1', 1)
+        +radio('player2', 2)
+        +radio('player3', 3)
+        +radio('player4', 4)
+        +radio('player5', 5)
+        +radio('player6', 6)
+        +radio('player7', 7)
+        +radio('player8', 8)
+        +radio('player9', 9)
+        +radio('player10', 10)
+      button( id='create-finish', class='box-finish', type='button') Finish
+      button(id='create-cancel', type='button') Cancel
+      button(type='submit') Submit

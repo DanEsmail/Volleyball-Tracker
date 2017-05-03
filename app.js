@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var path = require('path')
 
+var vbTeam = require('./routes/vb-team.js')
+
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/nhl')
 
@@ -19,9 +21,6 @@ db.once('open', function(){
   console.log('connected')
 });
 
-app.get('/', function(req, res) {
-    //res.sendFile(path.join(__dirname + '/index.html'));
-    res.render("volleyballTraker")
-});
+app.use('/team', vbTeam)
 
 app.listen(3000)
